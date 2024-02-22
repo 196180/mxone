@@ -1,0 +1,187 @@
+<footer id="footer" class="wrapper {if condition="$mxonest['mxcms']['s2']['dbdh'] eq 1"}pd60{/if}">
+	<p class="sitemap"><img src="{:mac_url_img($mxonest.mxcms.s1.logo3)}" height="10">
+		 {if condition="$mxonest['mxcms']['s2']['about'] eq 1"}
+		<a target="_blank" href="{:mac_url('label/about')}">关于</a><span class="space-line-bold"></span>
+		{/if}
+		<a target="_blank" href="{:mac_url('label/banquan')}">版权</a><span class="space-line-bold"></span>
+		<a target="_blank" href="{:mac_url('label/help')}">投屏</a><span class="space-line-bold"></span>
+		<a target="_blank" href="{:mac_url('label/live')}">直播</a><span class="space-line-bold"></span>
+		 {if condition="$mxonest['mxcms']['s2']['dbtop'] eq 1"}
+		<a target="_blank" href="{:mac_url('label/top')}">排行榜</a><span class="space-line-bold"></span>
+		{/if}
+		<a target="_blank" href="{:mac_url('map/index')}">MAP</a><span class="space-line-bold"></span>
+		<a target="_blank" href="{:mac_url('rss/index')}">RSS</a><span class="space-line-bold"></span>
+		<a target="_blank" href="{:mac_url('rss/baidu')}">Baidu</a><span class="space-line-bold"></span>
+		<a target="_blank" href="{:mac_url('rss/baidu')}">Google</a><span class="space-line-bold"></span>
+		<a target="_blank" href="{:mac_url('rss/bing')}">Bing</a><span class="space-line-bold"></span>
+		<a target="_blank" href="{:mac_url('rss/so')}">so</a><span class="space-line-bold"></span>
+		<a target="_blank" href="{:mac_url('rss/sogou')}">Sogou</a><span class="space-line-bold"></span>
+		<a target="_blank" href="{:mac_url('rss/sm')}">SM</a>
+	</p>
+	<p>{$mxonest.mxcms.s1.sm}</p>
+	{if condition="$mxonest['mxcms']['s4']['dbdm'] eq 1"}
+    {$mxonest.mxcms.s4.dbdmtips}
+	{/if}
+</footer>
+
+
+{if condition="$mxonest['mxcms']['s2']['yxjcd'] eq 1"}
+<div class="fixed_right_bar">
+  <div class="mx-lrmenu">  
+ <div class="ant-back-top dbicon" style="display:none;">
+	 <i class="iconfont icon-a-zhiding5"></i>	
+</div>
+  {if condition="$mxonest['mxcms']['s2']['fontqh'] eq 1"}
+<div class="dbicon">
+<a id="numerous" href="javascript:;" style="color: #ffffff; font-weight: bold;"></a>  
+<script src="{$maccms.path_tpl}mxstatic/js/font.js"></script>
+</div>
+{/if}
+  {if condition="$mxonest['mxcms']['s2']['yjqh'] eq 1"}
+<div class="dbicon"  id="clothes" onclick="clothesChange();">
+{if condition="$mxonest['mxcms']['s2']['mryj'] eq 1"}  
+<i class="iconfont icon-rijianmoshi"></i>
+{else} 
+<i class="iconfont icon-a-yejian2"></i>
+{/if}
+</div>
+{/if}
+ {if condition="$mxonest['mxcms']['s2']['liuyan'] eq 1"}
+<div class="dbicon ly">
+<a   href="{:mac_url('gbook/index')}" ><i class="iconfont icon-a-pinglun" ></i></a>
+<span class="anchor-txt">留言</span>
+</div>
+{/if}
+{if condition="$mxonest['mxcms']['s2']['topic'] eq 1"}
+<div class="dbicon">
+<a  href="{:mac_url('topic/index')}" ><i class="iconfont icon-zhuanti-2" ></i></a>
+</div>
+{/if}
+</div>
+<div class="moremeum">
+	    <i class="iconfont icon-a-gengduo1"></i>
+	</div>
+</div>
+{/if}
+
+
+
+{if condition="$mxonest['mxcms']['s2']['dbdh'] eq 1"}
+<div class="mxonefoot">
+		<a class="item" href="{$maccms.path}">
+    	<i class="icon-home size20"></i>
+		<div class="grid-item-name" title="{$maccms.site_name}首页">首页</div>
+		</a>
+		 {maccms:type  order="asc" by="sort" ids="'.$mxonest['mxcms']['s6']['wapdaohangid'].'"}	
+		<a class="item" href="{:mac_url_type($vo)}">
+			{if condition="$vo.type_id_1 eq $mxonest.mxcms.s6.num1||$vo.type_id eq $mxonest.mxcms.s6.num1"}
+              <i class="size20 {$mxonest.mxcms.s6.icon1}"></i>
+               {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s6.num2||$vo.type_id eq $mxonest.mxcms.s6.num2"}
+               <i class="size20 {$mxonest.mxcms.s6.icon2}"></i>
+               {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s6.num3||$vo.type_id eq $mxonest.mxcms.s6.num3"}
+                <i class="size20 {$mxonest.mxcms.s6.icon3}"></i>
+                 {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s6.num4||$vo.type_id eq $mxonest.mxcms.s6.num4"}
+                 <i class="size20 {$mxonest.mxcms.s6.icon4}"></i>
+                 {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s6.num5||$vo.type_id eq $mxonest.mxcms.s6.num5"}
+               <i class="size20 {$mxonest.mxcms.s6.icon5}"></i> 
+                {else}
+                 <i class="size20  {$mxonest.mxcms.s6.iconmr}"></i>
+               {/if}
+		<div class="grid-item-name">{$vo.type_name}</div>
+		</a>
+		{/maccms:type}	
+
+		{if condition="$mxonest['mxcms']['s6']['diy1'] eq 1"}
+		<a class="item" href="{$mxonest.mxcms.s6.diy1url}">
+        <i class="size20  {$mxonest.mxcms.s6.diy1icon}"></i>
+		<div class="grid-item-name">{$mxonest.mxcms.s6.diy1name}</div>
+		</a>
+		{/if}
+			{if condition="$mxonest['mxcms']['s6']['diy2'] eq 1"}
+		<a class="item" href="{$mxonest.mxcms.s6.diy2url}">
+        <i class="size20  {$mxonest.mxcms.s6.diy2icon}"></i>
+		<div class="grid-item-name">{$mxonest.mxcms.s6.diy2name}</div>
+		</a>
+		{/if}
+</div>
+{/if}
+
+<script type="text/javascript">
+{if condition="$mxonest['mxcms']['s2']['mryj'] eq 1"} 
+ $("#clothes").on('click',function () {
+        $(this).children(".iconfont").toggleClass("icon-a-yejian2");
+        $(this).children(".iconfont").toggleClass("icon-rijianmoshi")
+    });
+  {else}
+    $("#clothes").on('click',function () {
+        $(this).children(".iconfont").toggleClass("icon-rijianmoshi");
+        $(this).children(".iconfont").toggleClass("icon-a-yejian2")
+    });
+ {/if}
+</script>
+
+{if condition="$mxonest['mxcms']['s2']['tc'] eq 1"}
+{include file="public/tcnotice"} <!-- 弹窗公告-->
+{/if}
+   
+ {if condition="$mxonest['mxcms']['s2']['wz0'] eq 1"}  
+{include file="public/website"} <!-- 网址-->
+{/if}
+<!--新的-->
+<script type="text/javascript">   
+	document.onkeydown=function(){
+	    
+		var e = window.event||arguments[0];
+		
+	     {if condition="$mxonest['mxcms']['s4']['shier'] eq 1"} 
+if(window.event&&window.event.keyCode==123){event.keyCode=0;event.returnValue=false;new Vue({data:function(){this.$notify({title:"{$mxonest.mxcms.s4.pbtips}",message:"你非要调试的话试试 Alt+Shift+Fn+F4",position:'bottom-right',offset:50,showClose:true,type:"error"});return{visible:false}}})
+				return false;
+			}
+        {/if}
+
+        {if condition="$mxonest['mxcms']['s4']['ctrl'] eq 1"} 
+if((event.ctrlKey)&&(event.shiftKey)&&(event.keyCode==73)){new Vue({data:function(){this.$notify({title:"{$mxonest.mxcms.s4.pbtips}",message:"老弟，好好看电影吧不要瞎调试换哟~",position:'bottom-right',offset:50,showClose:true,type:"error"});return{visible:false}}})
+			return false;
+		}
+if(e.ctrlKey&&window.event.keyCode==85){new Vue({data:function(){this.$notify({title:"{$mxonest.mxcms.s4.pbtips}",message:"老弟，在干嘛呢？好好看电影吧~",position:'bottom-right',offset:50,showClose:true,type:"error"});return{visible:false}}})
+		   return false;
+		}		
+if(event.ctrlKey&&window.event.keyCode==83){new Vue({data:function(){this.$notify({title:"{$mxonest.mxcms.s4.pbtips}",message:"看电影网页不需要保存哦~",position:'bottom-right',offset:50,showClose:true,type:"error"});return{visible:false}}})
+		   return false;
+		}
+        {/if}
+	}
+  {if condition="$mxonest['mxcms']['s4']['right'] eq 1"} 
+document.oncontextmenu = function (){new Vue({data:function(){this.$notify({title:"{$mxonest.mxcms.s4.pbtips}",message:"复制请用键盘快捷键 Ctrl+C",position:'bottom-right',offset:50,showClose:true,type:"warning"});return{visible:false}}})
+		return false;
+	}
+ {/if}
+  {if condition="$mxonest['mxcms']['s4']['mode'] eq 1"} 
+	var threshold = 160;
+	window.setInterval(function() {  
+	    if (window.outerWidth - window.innerWidth > threshold ||   
+	    window.outerHeight - window.innerHeight > threshold) {  
+			function disableDebugger() {
+				debugger;
+			}
+			$(document).ready(function () {
+				disableDebugger();
+			});
+	    }  
+	}, 1e3);
+ {/if}
+</script>
+<!--新的-->
+
+<div class="shortcuts-mobile-overlay"></div>
+{if condition="$mxonest['mxcms']['s2']['yxjdiy'] eq 1"}
+<style>
+.fixed_right_bar i{color:{$mxonest.mxcms.s2.iconztys}}.fixed_right_bar .moremeum{background:{$mxonest.mxcms.s2.cdbjys}}.fixed_right_bar .dbicon{background:{$mxonest.mxcms.s2.iconbjys}.fixed_right_bar .dbicon:hover {
+	background: {$mxonest.mxcms.s2.iconbjglys};}}.fixed_right_bar .dbicon:hover {	background: {$mxonest.mxcms.s2.iconbjglys};}}background: {$mxonest.mxcms.s2.iconbjglys};color:{$mxonest.mxcms.s2.iconztys}}}}
+</style>
+ {/if}
+{if condition="$mxonest['mxcms']['s2']['tc'] eq 1"}
+<script src="{$maccms.path_tpl}mxstatic/js/mxhtml.js"></script>
+ {/if}
+<script src="{$maccms.path_tpl}mxstatic/js/mxui.js"></script>
+{include file="ads/addb"}	 <!-- 底部广告位 -->

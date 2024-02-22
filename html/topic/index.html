@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+       {include file="seo/topic_index"}     
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	{include file="public/include"}
+	<link href="{$maccms.path_tpl}mxstatic/css/mxone.css" rel="stylesheet" type="text/css">
+	</head>
+	<body class="page">
+		{include file="public/head"}
+
+        <main id="main" class="wrapper">
+   	    <div class="content">  
+   	    		{if condition="$mxonest['mxcms']['s3']['adqj'] eq 1"}{include file="ads/adqj"}	 <!-- 全局广告位 -->	{/if}
+				<div class="mxone-pannel mxone-pannel-bg clearfix">
+					<div class="mxone-pannel-box">
+						<div class="mxone-pannel_hd">
+							<div class="mxone-pannel__head clearfix">
+								<h3 class="title module-title">
+								热门影视专题
+								</h3>														
+							</div>
+						</div>
+						<div class="mxone-pannel_bd">
+							<ul class="mxone-vodlist clearfix">								
+								{maccms:topic num="16" paging="yes" order="desc" by="time"}
+								<li class="col-md-4 col-sm-2 col-xs-1">
+									<div class="mxone-vodlist__box">
+										<a class="mxone-vodlist__thumb active lazy lazyload" href="{:mac_url_topic_detail($vo)}" title="{$vo.topic_name}" data-src="{:mac_url_img($vo.topic_pic)}" style=" padding-top: 50%;" >						
+											<span class="play hidden-xs"></span>								
+										</a>
+										<div class="mxone-vodlist__detail">
+											<h4 class="title text-center text-overflow"><a href="{:mac_url_topic_detail($vo)}" title="{$vo.topic_name}">{$vo.topic_name}</a></h4>
+											<p class="text text-center text-overflow text-muted hidden-xs">—— {$vo.topic_rel_vod|explode=',',###|count}个影片 ——</p>
+										</div>										
+									</div>									
+								</li>
+								{/maccms:topic}
+							</ul>	
+						</div>
+					</div>					
+				</div>						
+				{include file="public/paging"}
+        	</div>
+     </main>
+		{include file="public/foot"}
+	</body>
+</html>

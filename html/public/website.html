@@ -1,0 +1,29 @@
+<div class="popup popup-notice none">
+	<div class="popup-icon"><img src="{$maccms.path_tpl}mxstatic/picture/backhome.svg"></div>
+	<div class="popup-header">
+		<h3 class="popup-title">域名列表</h3></div>
+	<div class="popup-main">
+		<p>
+			<a><strong>{$maccms.site_url}</strong></a><br>
+		   	{if condition="$mxonest['mxcms']['s2']['wz1'] eq 1"}
+			<a><strong>{$mxonest.mxcms.s2.web1}</strong></a><br>
+			{/if}
+			{if condition="$mxonest['mxcms']['s2']['wz2'] eq 1"}
+			<a><strong>{$mxonest.mxcms.s2.web2}</strong></a><br>
+			{/if}
+			{if condition="$mxonest['mxcms']['s2']['wz3'] eq 1"}
+			<a><strong>{$mxonest.mxcms.s2.web3}</strong></a><br>
+			{/if}
+			{if condition="$mxonest['mxcms']['s2']['wz4'] eq 1"}
+			<a><strong>{$mxonest.mxcms.s2.web4}</strong></a><br>
+			{/if}
+			{if condition="$mxonest['mxcms']['s2']['wz5'] eq 1"}
+			<a><strong>{$mxonest.mxcms.s2.web5}</strong></a><br>
+			{/if}
+		</p>
+	</div>
+	<div class="popup-footer">
+		<a href="{:mac_url('label/web')}" class="popup-btn-o">查看全部域名</a>
+	</div>
+	<div class="close-popup" id="close-popup"><i class="icon-close-o"></i></div>
+</div>

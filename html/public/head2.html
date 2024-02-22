@@ -1,0 +1,499 @@
+ {if condition="$maccms.aid eq 1"}
+<header id="header" class="wrapper" {if condition="$mxonest['mxcms']['s2']['pcgddh'] eq 0"}style="padding-top: 0!important;"{/if}>
+	<div class="header-content {if condition="$mxonest['mxcms']['s2']['pcgddh'] eq 0"}qxgddh{/if}" >
+		<div class="banyundog-com">
+			<div class="header-logo">
+				<h1 class="slogan">{$mxonest.mxcms.s1.gg}</h1>
+				<div class="fixed-logo">
+					<a href="{$maccms.path}" class="logo" title="{$maccms.site_name}"><img src="{:mac_url_img($mxonest.mxcms.s1.logo2)}" alt="{$maccms.site_name}"></a>
+				</div>
+			</div>
+		</div>
+		<div class="nav-search">
+		   <form action="{:mac_url('vod/search')}" class="search-dh"></form>
+		</div>
+    
+		<div class="nav">
+			<ul class="nav-menu-items">
+				<li class="nav-menu-item {if condition="$maccms.aid eq 1"}selected{/if}">
+					<a href="{$maccms.path}" title="{$maccms.site_name}首页">{if condition="$mxonest['mxcms']['s2']['pcdhicon'] eq 1"}<i class="icon-home"></i>{/if} <span>首页</span></a>
+				</li>
+				{maccms:type order="asc" by="sort" ids="'.$mxonest['mxcms']['s2']['daohangid'].'" }
+				<li class="nav-menu-item  {if condition=" ($vo.type_id eq $GLOBALS[ 'type_id'] || $vo.type_id eq $GLOBALS[ 'type_pid']) "}selected{/if}">
+					<a href="{:mac_url_type($vo)}" title="{$vo.type_name}">
+					     {if condition="$mxonest['mxcms']['s2']['pcdhicon'] eq 1"}
+						{if condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num1||$vo.type_id eq $mxonest.mxcms.s2.num1"}
+                                  <i class="{$mxonest.mxcms.s2.icon1}"></i>
+                                {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num2||$vo.type_id eq $mxonest.mxcms.s2.num2"}
+                                <i class="{$mxonest.mxcms.s2.icon2}"></i>
+                                {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num3||$vo.type_id eq $mxonest.mxcms.s2.num3"}
+                                <i class="{$mxonest.mxcms.s2.icon3}"></i>
+                                {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num4||$vo.type_id eq $mxonest.mxcms.s2.num4"}
+                                <i class="{$mxonest.mxcms.s2.icon4}"></i>
+                                 {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num5||$vo.type_id eq $mxonest.mxcms.s2.num5"}
+                                <i class="{$mxonest.mxcms.s2.icon5}"></i>
+                                 {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num6||$vo.type_id eq $mxonest.mxcms.s2.num6"}
+                                <i class="{$mxonest.mxcms.s2.icon6}"></i>
+                                 {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num7||$vo.type_id eq $mxonest.mxcms.s2.num7"}
+                                <i class="{$mxonest.mxcms.s2.icon7}"></i>
+                                {else}
+                                  <i class="{$mxonest.mxcms.s2.iconmr}"></i>
+                                {/if}
+                                {/if}
+                                <span>{$vo.type_name}</span>
+					 </a>
+				</li>
+				{/maccms:type}
+				
+					{if condition="$mxonest['mxcms']['s2']['diy1'] eq 1"}
+					<li class="nav-menu-item">
+					<a href="{$mxonest.mxcms.s2.diy1url}" target="_blank" title="{$mxonest.mxcms.s2.diy1name}">
+					  <i class="{$mxonest.mxcms.s2.diy1icon}"></i> <span>{$mxonest.mxcms.s2.diy1name}</span>
+					 </a>
+				</li>
+				{/if}
+				{if condition="$mxonest['mxcms']['s2']['diy2'] eq 1"}
+					<li class="nav-menu-item">
+					<a href="{$mxonest.mxcms.s2.diy2url}" target="_blank" title="{$mxonest.mxcms.s2.diy2name}" > 
+					<i class="{$mxonest.mxcms.s2.diy2icon}"></i> <span>{$mxonest.mxcms.s2.diy2name}</span>
+					</a>
+				</li>
+				{/if}
+					{if condition="$mxonest['mxcms']['s2']['diy3'] eq 1"}
+					<li class="nav-menu-item">
+					<a href="{$mxonest.mxcms.s2.diy3url}" target="_blank" title="{$mxonest.mxcms.s2.diy3name}" >
+					 <i class="{$mxonest.mxcms.s2.diy3icon}"></i> <span>{$mxonest.mxcms.s2.diy3name}</span>
+					 </a>
+				</li>
+				{/if}
+					{if condition="$mxonest['mxcms']['s2']['zhiboym'] eq 1"}
+				<li class="nav-menu-item {if condition="$maccms.aid eq 7"}selected{/if}">
+					<a href="{:mac_url('label/live')}" title="{$maccms.site_name}直播" >
+					{if condition="$mxonest['mxcms']['s2']['pcdhicon'] eq 1"} <i class="{$mxonest.mxcms.s2.diyliveicon}"></i>{/if}<span>直播</span>
+					 </a>
+				</li>
+					{/if}
+				
+				{if condition="$mxonest['mxcms']['s2']['wz0'] eq 1"}
+				<li class="nav-menu-item  domain plus">
+					<a href="javascript:;" title="{$maccms.site_name}最新域名">
+					   {if condition="$mxonest['mxcms']['s2']['pcdhicon'] eq 1"}<i class="icon-domain"></i>{/if}  
+					    <span>网址</span><em>+</em></a>
+				</li>
+					{/if}
+				{if condition="$mxonest['mxcms']['s2']['app'] eq 1"}	
+				<li class="nav-menu-item">
+					<a href="{:mac_url('label/app')}" title="下载{$maccms.site_name}APP"><i class="icon-app pc"></i><span>APP</span></a>
+				</li>
+			    {/if}
+			</ul>
+		</div>
+		 {if condition="$mxonest['mxcms']['s2']['sydh'] eq 1"}
+			<div class="pc">
+			<ul class="nav-menu-items">
+			    	<li class="space-line-bold"></li>
+					<li class="nav-menu-item drop ">
+					<span class="nav-menu-icon">
+                        <i class="{$mxonest.mxcms.s2.sydhicon}"></i>
+                    </span>
+					<div class="drop-content sub-block subw500">
+						<div class="drop-content-box grid-box">
+							<ul class="drop-content-items grid-items">
+							 {maccms:type  order="asc" by="sort" ids="'.$mxonest['mxcms']['s2']['sydhall'].'" }			
+								<li class="grid-item">
+									<a href="{:mac_url_type($vo)}" title="{$vo.type_name}">
+										<div class="grid-item-name">{$vo.type_name}</div>
+									</a>
+								</li>
+								{/maccms:type}	
+							</ul>
+						</div>
+					</div>
+					<div class="shortcuts-mobile-overlay"></div>
+				</li>
+			</ul>
+		</div>
+		{/if}
+		<div class="header-module">
+			<ul class="nav-menu-items">
+			    {if condition="$mxonest['mxcms']['s2']['wapsydh'] eq 1"}
+				<li class="nav-menu-item drop"><span class="nav-menu-icon"><i class="icon-all"></i></span>
+					<div class="drop-content sub-block">
+						<div class="drop-content-box grid-box">
+							<ul class="drop-content-items grid-items">
+								<li class="grid-item">
+									<a href="{$maccms.path}"><i class="icon-home"></i>
+										<div class="grid-item-name" title="{$maccms.site_name}首页">首页</div>
+									</a>
+								</li>
+								{maccms:type order="asc" by="sort" ids="'.$mxonest['mxcms']['s5']['wapdaohangid'].'" }
+								<li class="grid-item">
+									<a href="{:mac_url_type($vo)}" title="{$vo.type_name}">
+										{if condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num1||$vo.type_id eq $mxonest.mxcms.s5.num1"}
+										<i class="{$mxonest.mxcms.s5.icon1}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num2||$vo.type_id eq $mxonest.mxcms.s5.num2"}
+										<i class="{$mxonest.mxcms.s5.icon2}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num3||$vo.type_id eq $mxonest.mxcms.s5.num3"}
+										<i class="{$mxonest.mxcms.s5.icon3}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num4||$vo.type_id eq $mxonest.mxcms.s5.num4"}
+										<i class="{$mxonest.mxcms.s5.icon4}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num5||$vo.type_id eq $mxonest.mxcms.s5.num5"}
+										<i class="{$mxonest.mxcms.s5.icon5}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num6||$vo.type_id eq $mxonest.mxcms.s5.num6"}
+										<i class="{$mxonest.mxcms.s5.icon6}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num7||$vo.type_id eq $mxonest.mxcms.s5.num7"}
+										<i class="{$mxonest.mxcms.s5.icon7}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num8||$vo.type_id eq $mxonest.mxcms.s5.num8"}
+										<i class="{$mxonest.mxcms.s5.icon8}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num9||$vo.type_id eq $mxonest.mxcms.s5.num9"}
+										<i class="{$mxonest.mxcms.s5.icon9}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num10||$vo.type_id eq $mxonest.mxcms.s5.num10"}
+										<i class="{$mxonest.mxcms.s5.icon10}"></i> 
+										{else}
+										<i class="{$mxonest.mxcms.s5.iconmr}"></i>
+										{/if}
+										<div class="grid-item-name">{$vo.type_name}</div>
+									</a>
+								</li>
+								{/maccms:type} 
+							
+								{if condition="$mxonest['mxcms']['s5']['diy1'] eq 1"}
+								<li class="grid-item">
+								    <!--  如果需要在新窗口打开把这段代码target="_blank"加到a后边 -->
+									<a href="{$mxonest.mxcms.s5.diy1url}" title="{$mxonest.mxcms.s5.diy1name}">
+										<i class="{$mxonest.mxcms.s5.diy1icon}"></i>
+										<div class="grid-item-name">{$mxonest.mxcms.s5.diy1name}</div>
+									</a>
+								</li>
+								{/if} {if condition="$mxonest['mxcms']['s5']['diy2'] eq 1"}
+								<li class="grid-item">
+									<a  target="_blank" href="{$mxonest.mxcms.s5.diy2url}" title="{$mxonest.mxcms.s5.diy2name}">
+										<i class="{$mxonest.mxcms.s5.diy2icon}"></i>
+										<div class="grid-item-name">{$mxonest.mxcms.s5.diy2name}</div>
+									</a>
+								</li>
+							<!--	{/if} {if condition="$mxonest['mxcms']['s2']['wz0'] eq 1"}
+								<li class="grid-item">
+									<a href="{:mac_url('label/web')}"><i class="icon-domain"></i>
+										<div class="grid-item-name" title="网址">网址</div>
+									</a>
+								</li>
+								{/if}-->
+								<li class="grid-item grid-more">
+									<a class="grid-more-link" href="{:mac_url_type($obj,['id'=>1],'show')}" title="查看全部影片">
+										<div class="grid-item-name">全部影片</div>
+									</a>
+								</li>
+								{if condition="$mxonest['mxcms']['s2']['app'] eq 1"}
+								<li class="grid-item grid-more android">
+									<a href="{:mac_url('label/app')}" class="grid-more-link" title="下载{$maccms.site_name}APP">
+										<div class="grid-item-name">下载客户端</div>
+									</a>
+								</li>
+								{/if}
+							</ul>
+						</div>
+					</div>
+					<div class="shortcuts-mobile-overlay"></div>
+				</li>
+					{/if}
+				<li class="nav-menu-item nav-menu-search"><i class="icon-search"></i></li>
+				<li class="space-line-bold"></li>
+				<li class="nav-menu-item drop"><span class="nav-menu-icon"><i class="icon-watch-history"></i></span>
+					<div class="drop-content drop-history">
+						<div class="drop-content-box">
+							<ul class="drop-content-items" id="history">
+								<li class="list-item list-item-title">
+									<a href="" class="playlist historyclean"><i class="icon-clear"></i></a>
+									<strong>我的观影记录</strong></li>
+							</ul>
+						</div>
+					</div>
+					<div class="shortcuts-mobile-overlay"></div>
+				</li>
+				{if condition="$mxonest['mxcms']['s2']['user'] eq 1"} {if condition="$maccms.user_status eq 1"}
+				<li class="space-line-bold"></li>
+				<li class="nav-menu-item drop wapblock">
+					<a class="mac_user" href="javascript:;" title="会员中心"><i class="iconfont icon-yonghu-fuben"></i></a>
+				</li>
+				{/if} {/if}
+			</ul>
+		</div>
+	</div>
+	<div id="search-content" class="indexsearch">
+		<div class="index-logo"><span class="logo-s"><img src="{:mac_url_img($mxonest.mxcms.s1.logo1)}" title="{$maccms.site_name}"></span></div>
+		<form action="{:mac_url('vod/search')}">
+			<div class="search-main">
+				<div class="search-box">
+					<input class="search-input ac_wd" id="txtKeywords" type="text" name="wd" autocomplete="off" placeholder="{$mxonest.mxcms.s1.searchwd}">
+					<div class="search-drop">
+						<div class="drop-content-items ac_hot none">
+							<div class="list-item list-item-title"><strong>大家都在搜这些影片</strong></div>
+							<div class="search-tag">
+								{maccms:foreach name=":explode(',',$maccms.search_hot)" id="vo2" key="key2"}
+								<a href="{:mac_url('vod/search',['wd'=>$vo2])}" class="{if condition=" $key2 lt 4 "}hot {else}{/if}"><i class="icon-hot"></i>{$vo2}</a>
+								{/maccms:foreach}
+							</div>
+						</div>
+					</div>
+					 {if condition="$mxonest['mxcms']['s2']['searchhoticon'] eq 1"}<a href="{:mac_url('label/top')}" class="search-btn search-cupfox" id="search-cupfox" title="{$maccms.site_name}排行榜" ><i class="{$mxonest.mxcms.s2.diysearchhoticon} phb"></i><span>搜全站</span></a></a>{/if}
+					<button class="search-btn search-go" type="submit"><i class="icon-search"></i></button>
+					<button class="cancel-btn" type="button">取消</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</header>
+{else /}
+<header id="header" class="wrapper" {if condition="$mxonest['mxcms']['s2']['pcgddh'] eq 0"}style="padding-top: 0!important;"{/if}>
+	<div class="header-content  {if condition="$mxonest['mxcms']['s2']['pcgddh'] eq 0"}qxgddh{/if}">
+		<div class="content">
+			<div class="brand">
+				<a href="{$maccms.path}" class="logo" title="{$maccms.site_name}"><img src="{:mac_url_img($mxonest.mxcms.s1.logo2)}" alt="{$maccms.site_name}"></a>
+			</div>
+
+			<div class="nav-search">
+				<form action="{:mac_url('vod/search')}" class="search-dh">
+				    {if condition="$maccms.aid neq 13"}
+					<div class="search-box"><input class="search-input ac_wd txtKeywords" type="text" name="wd" autocomplete="off" placeholder="{$mxonest.mxcms.s1.searchwd}">
+						<div class="search-drop">
+							<div class="drop-content-items ac_hot none">
+								<div class="list-item list-item-title"><strong>大家都在搜这些影片</strong></div>
+								<div class="search-tag">
+									{maccms:foreach name=":explode(',',$maccms.search_hot)" id="vo2" key="key2"}
+									<a href="{:mac_url('vod/search',['wd'=>$vo2])}" class="{if condition=" $key2 lt 4 "}hot {else}{/if}"><i class="icon-hot"></i>{$vo2}</a>
+									{/maccms:foreach}
+								</div>
+							</div>
+						</div>
+					     {if condition="$mxonest['mxcms']['s2']['searchhoticon'] eq 1"}<a href="{:mac_url('label/top')}" class="search-btn search-cupfox" id="search-cupfox" title="{$maccms.site_name}排行榜" ><i class="{$mxonest.mxcms.s2.diysearchhoticon} phb"></i></a>{/if}
+						<button class="search-btn search-go" type="submit"><i class="icon-search"></i></button>
+						<button class="cancel-btn" type="button">取消</button>
+					</div>
+					{/if}
+				</form>
+			</div>
+
+			<div class="nav">
+				<ul class="nav-menu-items">
+					<li class="nav-menu-item {if condition=" $maccms.aid eq 1 "}selected{/if}">
+						<a href="{$maccms.path}" title="{$maccms.site_name}首页">
+						{if condition="$mxonest['mxcms']['s2']['pcdhicon'] eq 1"}<i class="icon-home nav-menu-item-name-white"></i>{/if} <span class="nav-menu-item-name">首页</span></a>
+					</li>
+					{maccms:type order="asc" by="sort" ids="'.$mxonest['mxcms']['s2']['daohangid'].'" }
+					<li class="nav-menu-item  {if condition=" ($vo.type_id eq $GLOBALS[ 'type_id'] || $vo.type_id eq $GLOBALS[ 'type_pid']) "}selected{/if}">
+						<a href="{:mac_url_type($vo)}" title="{$vo.type_name}">
+						    {if condition="$mxonest['mxcms']['s2']['pcdhicon'] eq 1"}
+						{if condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num1||$vo.type_id eq $mxonest.mxcms.s2.num1"}
+                                  <i class="{$mxonest.mxcms.s2.icon1} nav-menu-item-name-white"></i>
+                                {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num2||$vo.type_id eq $mxonest.mxcms.s2.num2"}
+                                <i class="{$mxonest.mxcms.s2.icon2} nav-menu-item-name-white"></i>
+                                {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num3||$vo.type_id eq $mxonest.mxcms.s2.num3"}
+                                <i class="{$mxonest.mxcms.s2.icon3} nav-menu-item-name-white"></i>
+                                {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num4||$vo.type_id eq $mxonest.mxcms.s2.num4"}
+                                <i class="{$mxonest.mxcms.s2.icon4} nav-menu-item-name-white"></i>
+                                 {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num5||$vo.type_id eq $mxonest.mxcms.s2.num5"}
+                                <i class="{$mxonest.mxcms.s2.icon5} nav-menu-item-name-white"></i>
+                                 {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num6||$vo.type_id eq $mxonest.mxcms.s2.num6"}
+                                <i class="{$mxonest.mxcms.s2.icon6} nav-menu-item-name-white"></i>
+                                 {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s2.num7||$vo.type_id eq $mxonest.mxcms.s2.num7"}
+                                <i class="{$mxonest.mxcms.s2.icon7} nav-menu-item-name-white"></i>
+                                {else}
+                                  <i class="{$mxonest.mxcms.s2.iconmr} nav-menu-item-name-white"></i>
+                                {/if}
+                                {/if} 
+						    <span class="nav-menu-item-name">{$vo.type_name}</span></a>
+					</li>
+					{/maccms:type}
+					
+						{if condition="$mxonest['mxcms']['s2']['diy1'] eq 1"}
+					<li class="nav-menu-item">
+					<a target="_blank" href="{$mxonest.mxcms.s2.diy1url}" class="nav-link" >
+					  <i class="{$mxonest.mxcms.s2.diy1icon} nav-menu-item-name-white"></i> 
+					   <span class="nav-menu-item-name"> {$mxonest.mxcms.s2.diy1name}</span>
+					 </a>
+				</li>
+				{/if}
+				{if condition="$mxonest['mxcms']['s2']['diy2'] eq 1"}
+					<li class="nav-menu-item">
+					<a target="_blank" href="{$mxonest.mxcms.s2.diy2url}" class="nav-link" > 
+					<i class="{$mxonest.mxcms.s2.diy2icon} nav-menu-item-name-white"></i> 
+					 <span class="nav-menu-item-name"> {$mxonest.mxcms.s2.diy2name}</span>
+					</a>
+				</li>
+				{/if}
+					{if condition="$mxonest['mxcms']['s2']['diy3'] eq 1"}
+					<li class="nav-menu-item">
+					<a target="_blank" href="{$mxonest.mxcms.s2.diy3url}" class="nav-link" >
+					 <i class="{$mxonest.mxcms.s2.diy3icon} nav-menu-item-name-white"></i> 
+					  <span class="nav-menu-item-name"> {$mxonest.mxcms.s2.diy3name}</span>
+					 </a>
+				</li>
+				{/if}
+				
+					{if condition="$mxonest['mxcms']['s2']['zhiboym'] eq 1"}
+				<li class="nav-menu-item {if condition="$maccms.aid eq 9999"}selected{/if}">
+					<a href="{:mac_url('label/live')}" title="{$maccms.site_name}直播" >
+					{if condition="$mxonest['mxcms']['s2']['pcdhicon'] eq 1"} <i class="{$mxonest.mxcms.s2.diyliveicon}"></i>{/if}<span class="nav-menu-item-name">直播</span>
+					 </a>
+				</li>
+					{/if}
+				
+					{if condition="$mxonest['mxcms']['s2']['wz0'] eq 1"}	
+					<li class="nav-menu-item  domain plus">
+						<a href="javascript:;" title="{$maccms.site_name}最新域名">
+						 {if condition="$mxonest['mxcms']['s2']['pcdhicon'] eq 1"}<i class="icon-domain nav-menu-item-name-white"></i>{/if}  
+						    <span class="nav-menu-item-name">网址</span><em>+</em></a>
+					</li>
+					 {/if}
+					 
+					 {if condition="$mxonest['mxcms']['s2']['app'] eq 1"} 
+					<li class="nav-menu-item  {if condition="$maccms.aid eq 9998"}selected{/if}">
+					<a href="{:mac_url('label/app')}" title="下载{$maccms.site_name}APP"><i class="icon-app pc"></i><span class="nav-menu-item-name">APP</span></a>
+					</li>
+					 {/if}
+					 
+				</ul>
+			</div>
+				 {if condition="$mxonest['mxcms']['s2']['sydh'] eq 1"}
+			<div class="pc">
+			<ul class="nav-menu-items">
+			    	<li class="space-line-bold"></li>
+					<li class="nav-menu-item drop ">
+					<span class="nav-menu-icon">
+                        <i class="{$mxonest.mxcms.s2.sydhicon}"></i>
+                    </span>
+					<div class="drop-content sub-block subw500">
+						<div class="drop-content-box grid-box">
+							<ul class="drop-content-items grid-items">
+							 {maccms:type  order="asc" by="sort" ids="'.$mxonest['mxcms']['s2']['sydhall'].'" }			
+								<li class="grid-item">
+									<a href="{:mac_url_type($vo)}" title="{$vo.type_name}">
+										<div class="grid-item-name">{$vo.type_name}</div>
+									</a>
+								</li>
+								{/maccms:type}	
+							</ul>
+						</div>
+					</div>
+					<div class="shortcuts-mobile-overlay"></div>
+				</li>
+			</ul>
+		</div>
+		{/if}
+			<div class="header-module">
+				<ul class="nav-menu-items">
+				     {if condition="$mxonest['mxcms']['s2']['wapsydh'] eq 1"}
+					<li class="nav-menu-item drop"><span class="nav-menu-icon"><i class="icon-all"></i></span>
+						<div class="drop-content sub-block">
+							<div class="drop-content-box grid-box">
+								<ul class="drop-content-items grid-items">
+									<li class="grid-item">
+										<a href="{$maccms.path}"><i class="icon-home"></i>
+											<div class="grid-item-name" title="{$maccms.site_name}首页">首页</div>
+										</a>
+									</li>
+									{maccms:type order="asc" by="sort" ids="'.$mxonest['mxcms']['s5']['wapdaohangid'].'" }
+									<li class="grid-item">
+										<a href="{:mac_url_type($vo)}" title="{$vo.type_name}">
+											{if condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num1||$vo.type_id eq $mxonest.mxcms.s5.num1"}
+											<i class="{$mxonest.mxcms.s5.icon1}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num2||$vo.type_id eq $mxonest.mxcms.s5.num2"}
+											<i class="{$mxonest.mxcms.s5.icon2}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num3||$vo.type_id eq $mxonest.mxcms.s5.num3"}
+											<i class="{$mxonest.mxcms.s5.icon3}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num4||$vo.type_id eq $mxonest.mxcms.s5.num4"}
+											<i class="{$mxonest.mxcms.s5.icon4}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num5||$vo.type_id eq $mxonest.mxcms.s5.num5"}
+											<i class="{$mxonest.mxcms.s5.icon5}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num6||$vo.type_id eq $mxonest.mxcms.s5.num6"}
+											<i class="{$mxonest.mxcms.s5.icon6}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num7||$vo.type_id eq $mxonest.mxcms.s5.num7"}
+											<i class="{$mxonest.mxcms.s5.icon7}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num8||$vo.type_id eq $mxonest.mxcms.s5.num8"}
+											<i class="{$mxonest.mxcms.s5.icon8}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num9||$vo.type_id eq $mxonest.mxcms.s5.num9"}
+											<i class="{$mxonest.mxcms.s5.icon9}"></i> {elseif condition="$vo.type_id_1 eq $mxonest.mxcms.s5.num10||$vo.type_id eq $mxonest.mxcms.s5.num10"}
+											<i class="{$mxonest.mxcms.s5.icon10}"></i> {else}
+											<i class="{$mxonest.mxcms.s5.iconmr}"></i> {/if}
+											<div class="grid-item-name">{$vo.type_name}</div>
+										</a>
+									</li>
+									{/maccms:type} {if condition="$mxonest['mxcms']['s5']['diy1'] eq 1"}
+									<li class="grid-item">
+										<a target="_blank" href="{$mxonest.mxcms.s5.diy1url}" title="{$mxonest.mxcms.s5.diy1name}">
+											<i class="{$mxonest.mxcms.s5.diy1icon}"></i>
+											<div class="grid-item-name">{$mxonest.mxcms.s5.diy1name}</div>
+										</a>
+									</li>
+									{/if} {if condition="$mxonest['mxcms']['s5']['diy2'] eq 1"}
+									<li class="grid-item">
+										<a target="_blank" href="{$mxonest.mxcms.s5.diy2url}" title="{$mxonest.mxcms.s5.diy2name}">
+											<i class="{$mxonest.mxcms.s5.diy2icon}"></i>
+											<div class="grid-item-name">{$mxonest.mxcms.s5.diy2name}</div>
+										</a>
+									</li>
+									{/if} {if condition="$mxonest['mxcms']['s2']['wz0'] eq 1"}
+									<li class="grid-item">
+										<a href="{:mac_url('label/web')}"><i class="icon-domain"></i>
+											<div class="grid-item-name" title="网址">网址</div>
+										</a>
+									</li>
+									{/if}
+									<li class="grid-item grid-more">
+										<a class="grid-more-link" href="{:mac_url_type($obj,['id'=>1],'show')}" title="查看全部影片">
+											<div class="grid-item-name">全部影片</div>
+										</a>
+									</li>
+									{if condition="$mxonest['mxcms']['s2']['app'] eq 1"}
+									<li class="grid-item grid-more android">
+										<a href="{:mac_url('label/app')}" class="grid-more-link" title="下载{$maccms.site_name}APP">
+											<div class="grid-item-name">下载客户端</div>
+										</a>
+									</li>
+									{/if}
+								</ul>
+							</div>
+						</div>
+						<div class="shortcuts-mobile-overlay"></div>
+					</li>
+					{/if}
+					
+					<li class="nav-menu-item nav-menu-search"><i class="icon-search"></i></li>
+					<li class="space-line-bold"></li>
+					<li class="nav-menu-item drop"><span class="nav-menu-icon"><i class="icon-watch-history"></i></span>
+						<div class="drop-content drop-history">
+							<div class="drop-content-box">
+								<ul class="drop-content-items" id="history">
+									<li class="list-item list-item-title">
+										<a href="" class="playlist historyclean"><i class="icon-clear"></i></a>
+										<strong>我的观影记录</strong></li>
+								</ul>
+							</div>
+						</div>
+						<div class="shortcuts-mobile-overlay"></div>
+					</li>
+					{if condition="$mxonest['mxcms']['s2']['user'] eq 1"} {if condition="$maccms.user_status eq 1"}
+					<li class="space-line-bold"></li>
+					<li class="nav-menu-item drop wapblock">
+						<a class="mac_user" href="javascript:;" title="会员中心"><i class="iconfont icon-yonghu-fuben"></i><span></span></a>
+					</li>
+					{/if} {/if}
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+
+{/if} 
+
+{if condition="$mxonest['mxcms']['s2']['pcgddh'] eq 1"}
+<script>
+		 $(".nav-menu-search").click(function () {
+             $(".nav-search").addClass("block");
+         });
+	$(document).scroll(function() {
+		var H = $(document).scrollTop();
+		if(H > 20) {
+		  $(".header-content").addClass("header-bg");
+		} else {
+		  $(".header-content").removeClass("header-bg");
+		}
+		if(H > 110) {
+          $(".header-content").addClass("header-bg");
+         $(".search-dh").append($(".search-box"));
+           $(".nav-menu-search").click(function () {
+             $(".nav-search").addClass("block");
+         });
+		} else {
+         $(".header-content").removeClass("header-bg");
+          $(".search-main").append($(".search-box"));
+         
+		}
+	});
+</script>
+{/if} 
+  

@@ -1,0 +1,24 @@
+         <div class="swiper-slide">
+         <div class=" gifpic" style="background: url({if condition="$vo.vod_pic_thumb eq ''"}{$vo.vod_pic_slide|mac_url_img}{else}{$vo.vod_pic_thumb}{/if}) center no-repeat;  background-size: cover;padding-top: 30%;border-radius: 5px;position: relative;">            
+            <div class="focus_leftshode focusleftshode"></div>
+            <div class="focus_rightshode focusrightshode"></div>
+            <div class="focus_topshode focustopshode"></div>
+            <div class="focus_bottomshode focusbottomshode"></div>                        
+            <div class="txt-info">
+            <p class="gate"><span>{$vo.type.type_name}</span></p>
+            <p class="name">{$vo.vod_name}</p>
+            <p class="info">{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if} </p>
+            </div>           
+         </div> 
+        <a class="dymrslide banner jpgpic" data-name="{$vo.vod_name}" data-fname="{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_sub neq ''"}{$vo.vod_sub}{else /}{$vo.vod_tag}{/if}" href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" style="background: url({$vo.vod_pic_slide|mac_url_img}) center no-repeat;  background-size: cover;">
+            <div class="focus_leftshode focusleftshode"></div>
+            <div class="focus_rightshode focusrightshode"></div>
+            <div class="focus_topshode focustopshode"></div>
+            <div class="focus_bottomshode focusbottomshode"></div>                        
+           <div class="txt-info">
+            <p class="gate"><span>{$vo.type.type_name}</span></p>
+            <p class="name">{$vo.vod_name}</p>
+            <p class="info">{if condition="$vo.vod_actor neq ''"}{$vo.vod_actor}{elseif condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{else /}{$vo.vod_state}{/if}  </p><!--左边顺序主演-备注-资源类别--->
+          </div>
+          </a>
+	     </div>	

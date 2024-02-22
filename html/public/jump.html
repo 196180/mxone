@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>系统提示......</title>
+   {include file="public/include"}
+</head>
+<body class="page">
+   {include file="public/head"}   <!-- 头部 -->  
+<main id="main" class="wrapper">
+<div class="content">
+<div class="page-heading">
+<div class="box nfmsg-box">
+<div class="nfmsg-left"></div>
+<div class="nfmsg-right">
+<div class="nfmsg-title">系统提示......</div>
+<div class="title">亲爱的：
+</div>
+    <div class="text">{$msg}</div>
+    <div class="jump">页面自动 <a id="href" href="<?php echo($url);?>"><b>跳转</b></a> 等待时间： <b id="wait"><?php echo($wait);?></b></div>
+        <p><div class="nfmsg-content"></p>不想<b>登陆</b>，你也可以直接返回～
+    <a href="{$maccms.path}" class="btn-gray btn-base"><b>返回{$maccms.site_name}</b></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script type="text/javascript">
+    (function(){
+        var wait = document.getElementById('wait'),
+                href = document.getElementById('href').href;
+        var interval = setInterval(function(){
+            var time = --wait.innerHTML;
+            if(time <= 0) {
+                location.href = href;
+                clearInterval(interval);
+            };
+        }, 1000);
+    })();
+</script>
+</body>
+</html>

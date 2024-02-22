@@ -1,0 +1,103 @@
+<?php $file = 'template/mxone/asset/admin/Mxone.php'; $newfile = 'application/admin/controller/Mxone.php'; if (file_exists($newfile)) {} else { copy($file,$newfile); } ?>
+<?php $file = 'template/mxone/asset/admin/mxonest.php'; $newfile = 'application/extra/mxonest.php'; if (file_exists($newfile)) {} else { copy($file,$newfile); } ?>
+<?php $file = 'template/mxone/asset/admin/mxcms.html'; $newfile = 'application/admin/view/system/mxcms.html'; if (file_exists($newfile)) {} else { copy($file,$newfile); } ?>
+<?php $mxonest = file_exists('application/extra/mxonest.php') ? require('application/extra/mxonest.php') : require(substr($maccms['path_tpl'], strlen($maccms['path'])).'asset/admin/mxonest.php'); ?>
+{if condition="$mxonest['mxcms']['s4']['tbdm'] eq 1"}
+{$mxonest.mxcms.s4.tbdmtips}
+{/if}
+<script>var maccms={"path":"__ROOT__","mid":"{$maccms['mid']}","url":"{$maccms['site_url']}","wapurl":"{$maccms['site_wapurl']}","mob_status":"{$maccms['mob_status']}"};</script>
+<link rel="icon" href="{:mac_url_img($mxonest.mxcms.s1.logo3)}" type="image/png" />
+<link href="{$maccms.path_tpl}mxstatic/css/style.css" rel="stylesheet" type="text/css">
+<link href="{$maccms.path_tpl}mxstatic/css/aliicon.css" rel="stylesheet" type="text/css">
+{if condition="$mxonest['mxcms']['s2']['mryj'] eq 0"}<link disabled="" class="theme_black" type="text/css" rel="stylesheet" href="{$maccms.path_tpl}mxstatic/css/mxhtmlblack.css">{/if}
+{if condition="$mxonest['mxcms']['s2']['mryj'] eq 1"}<link type="text/css" rel="stylesheet" href="{$maccms.path_tpl}mxstatic/css/mxhtmlblack.css">{/if}
+{if condition="$mxonest['mxcms']['s2']['mryj'] eq 1"}<link disabled="" class="theme_white"  type="text/css" rel="stylesheet" href="{$maccms.path_tpl}mxstatic/css/white.css">{/if}
+<script src="{$maccms.path_tpl}mxstatic/js/jquery.js"></script>
+<script type="text/javascript"  src="{$maccms.path_tpl}mxstatic/js/jquery.lazyload.js"></script>
+<script src="{$maccms.path_tpl}mxstatic/js/jquery.autocomplete.js"></script>
+<script src="{$maccms.path_tpl}mxstatic/js/jquery.cookie.js"></script>
+<script src="{$maccms.path_tpl}mxstatic/js/home.js"></script>
+<script type="text/javascript"  src="{$maccms.path_tpl}mxstatic/js/jquery.clipboard.js"></script>
+<script src="{$maccms.path_tpl}mxstatic/js/layer.js"></script>
+<script src="{$maccms.path_tpl}mxstatic/js/js_push.js"></script>
+ <script type="text/javascript" src="{$maccms.path_tpl}mxstatic/js/swiper.min.js"></script>
+{if condition="$maccms.aid eq 15"}
+<script type="text/javascript">var vod_name='{$obj.vod_name}',vod_url=window.location.href,vod_part='{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}';</script>
+<script type="text/javascript"  src="{$maccms.path_tpl}mxstatic/js/history.js"></script>
+ <script type="text/javascript"  src="{$maccms.path_tpl}mxstatic/js/jquery.qrcode.min.js"></script>
+ <script type="text/javascript"  src="{$maccms.path_tpl}mxstatic/js/swiper.min.js"></script>
+<link rel="stylesheet" href="{$maccms.path_tpl}mxstatic/css/swiper.min.css" type="text/css">
+{/if}
+ {if condition="$mxonest['mxcms']['s2']['gddhbg'] eq 1"}<style>.homepage .header-bg{background:{$mxonest.mxcms.s2.gddhbgdm};}.homepage .header-bg::after{background:{$mxonest.mxcms.s2.gddhbgdm};}.border-bottom::after, .header-content::after, .play .app-text::after{background-color: {$mxonest.mxcms.s2.gddhbgdm};} .header-content{background:{$mxonest.mxcms.s2.gddhbgdm}!important;}</style>{/if}
+<script src="{$maccms.path_tpl}mxstatic/js/script.js"></script>
+{if condition="$mxonest['mxcms']['s2']['mryj'] eq 0"}
+<script>
+	var clothes = $.cookie('clothes');
+	if (clothes) {
+		if (clothes == 'white') {
+			$('.theme_black').removeAttr('disabled');
+		} else {
+			$('.theme_black').attr('disabled', '');
+		}
+	} else {
+		$.cookie('clothes', 'black', { expires: 365, path: '/' })
+	}
+</script>
+<script>
+
+	function clothesChange(){
+		var clothes = $.cookie('clothes');
+		if (clothes == 'black') {
+			$.cookie('clothes','white', {expires: 365, path: '/'});  
+			$('.theme_black').each(function(){
+			    $(this).removeAttr('disabled');
+			});
+			
+		} else {
+			$.cookie('clothes','black', {expires: 365, path: '/'});  
+			$('.theme_black').each(function(){
+			    $(this).attr('disabled', '');
+			});
+		}
+		clothes = $.cookie('clothes');
+	}
+</script>
+{/if}
+
+
+{if condition="$mxonest['mxcms']['s2']['mryj'] eq 1"}
+<script>
+	var clothes = $.cookie('clothes');
+if (clothes) {
+		if (clothes == 'black') {
+			$('.theme_white').removeAttr('disabled');
+		} else {
+			$('.theme_white').attr('disabled', '');
+		}
+	} else {
+		$.cookie('clothes', 'white', { expires: 365, path: '/' })
+	}
+</script>
+<script>
+	function clothesChange(){
+		var clothes = $.cookie('clothes');
+		if (clothes == 'white') {
+			$.cookie('clothes','black', {expires: 365, path: '/'});  
+			$('.theme_white').each(function(){
+			    $(this).removeAttr('disabled');
+			});
+		} else {
+			$.cookie('clothes','white', {expires: 365, path: '/'});  
+			$('.theme_white').each(function(){
+			    $(this).attr('disabled', '');
+			});
+		}
+		clothes = $.cookie('clothes');
+	}
+</script>
+{/if}
+{if condition="$mxonest['mxcms']['s4']['stylediy'] eq 1"}
+<style>
+  {$mxonest.mxcms.s4.stylecss}  
+</style>
+{/if}

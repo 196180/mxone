@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+          {include file="seo/topic_detail"}  
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        {include file="public/include"}
+        <link href="{$maccms.path_tpl}mxstatic/css/mxone.css" rel="stylesheet" type="text/css">
+	</head>
+	<body class="page">
+		{include file="public/head"}	
+		
+	 <main id="main" class="wrapper">
+   	    <div class="content">  
+   	    {if condition="$mxonest['mxcms']['s3']['adqj'] eq 1"}{include file="ads/adqj"}	 <!-- 全局广告位 -->	{/if}
+				<div class="mxone-pannel mxone-pannel-bg clearfix">
+						<div class="col-md-wide-35 col-xs-1">
+							<div class="mxone-vodlist__thumb" style="background: url({:mac_url_img($obj.topic_pic)})  no-repeat; background-position:50% 50%; background-size: cover; padding-top: 50%; "></div>																									
+						</div>
+					    <div class="col-md-wide-65 col-xs-1">
+					    	<h1 class="topic-title">{$obj.topic_name}</h1>
+					        <p class="topic-desc text-muted">{$obj.topic_content|mac_filter_html}</p>	
+					        <div class="share bdsharebuttonbox hidden-sm hidden-xs"></div>
+					    </div>
+				</div>
+				<div class="mxone-pannel mxone-pannel-bg clearfix">
+						<div class="mxone-pannel_hd">
+							<div class="mxone-pannel__head clearfix">
+								<span class="more text-muted pull-right hidden-xs nonemore">本专题共“{$obj.vod_list|count}”部影片</span>
+								<h3 class="title ">
+								    该专题包含的影片
+								</h3>														
+							</div>								
+						</div>
+						<div class="mxone-pannel_bd clearfix">
+						<div class="module-list module-lines-list">
+	                    <div class="module-items">
+	                       {maccms:foreach name="$obj.vod_list"}
+	                         {include file="public/vodbox"}
+		                   	{/maccms:foreach}
+		                  </div>
+                    	</div>	
+						</div>
+				</div>												
+		   	</div>
+     </main>
+		<style type="text/css">
+			.topic-title{ margin: 20px 0 20px;}
+			.topic-desc{ margin-bottom: 20px;}
+			@media (max-width: 1024px){.topic-title{ margin: 0 0 10px; font-size: 16px;}.topic-desc{ margin: 0;}}
+			.module-main .module-lines-list .module-item:nth-child(n+15), .module-line-list .module-item:nth-child(n+9), .module-lines-list .module-item:nth-child(n+17){
+			    display: inline-block;
+			}
+	}
+		</style>
+		{include file="public/foot"}
+	</body>
+</html>
