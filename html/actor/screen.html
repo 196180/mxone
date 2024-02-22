@@ -1,0 +1,98 @@
+		<div class="box">
+
+				{if $obj.childids||$obj.parent.childids}
+				<div class="library-box scroll-box">
+					<div class="scroll-content">
+					    {if condition="$obj.type_pid eq 0"}
+						<a class="library-item library-item-first  {if condition="$obj.type_pid eq ''"}selected{/if}" href="{:mac_url('actor/show',['id'=>$obj.type_id])}">全部</a>
+						<div class="library-list">
+						  	{maccms:type ids="current" order="asc" by="sort" id="vo2" key="key2"}
+							<a class="library-item {if condition="$obj.type_pid eq $vo2.type_id"}selected{/if}" href="{:mac_url_type($vo2,[],'show')}">{$vo2.type_name}</a>
+								{/maccms:type}	
+						</div>
+						{else /}
+				    
+				    	<a class="library-item library-item-first {if condition="$obj.type_pid eq ''"}selected{/if}" href="{:mac_url('actor/show',['id'=>$obj.type_pid])}">全部</a>
+				    		<div class="library-list">
+						  	{maccms:type parent="'.$obj['type_pid'].'" order="asc" by="sort" id="vo2" key="key2"}
+							<a class="library-item {if condition="$obj.type_id eq $vo2.type_id"}selected{/if}" href="{:mac_url_type($vo2,[],'show')}">{$vo2.type_name}</a>
+								{/maccms:type}	
+						
+						</div>
+				    	{/if}
+					</div>
+				</div>
+			{/if}
+				<div class="library-box scroll-box">
+					<div class="scroll-content">
+						<a class="library-item library-item-first {if condition="$param['sex'] eq ''"} selected{/if}" href="{:mac_url('actor/show',['id'=>$param['id'],'area'=>$param['area'],'blood'=>$param['blood'],'starsign'=>$param['starsign'],'letter'=>$param['letter']])}">性别</a>
+						<div class="library-list">
+						     {maccms:foreach name=":explode(',','男,女,变性')" id="vo1" key="key1"}
+							<a class="library-item {if condition="$param['sex'] eq $vo1"}selected{/if}" href="{:mac_url('actor/show',['id'=>$param['id'],'area'=>$param['area'],'sex'=>$vo1,'blood'=>$param['blood'],'starsign'=>$param['starsign'],'letter'=>$param['letter']])}" title="{$vo1}">{$vo1}</a>
+				            {/maccms:foreach}
+						</div>
+					</div>
+				</div>
+				
+				<div class="library-box scroll-box">
+					<div class="scroll-content">
+						<a class="library-item library-item-first  {if condition="$param['area'] eq ''"}selected{/if}" href="{:mac_url('actor/show',['id'=>$param['id'],'sex'=>$param['sex'],'blood'=>$param['blood'],'starsign'=>$param['starsign'],'letter'=>$param['letter']])}">地区</a>
+						<div class="library-list">
+						    {maccms:foreach name=":explode(',','内地,韩国,香港,日本,美国,欧洲,英国,台湾')" id="vo2" key="key2"}
+							<a class="library-item {if condition="$param['area'] eq $vo2"}selected{/if} " href="{:mac_url('actor/show',['id'=>$param['id'],'area'=>$vo2,'sex'=>$param['sex'],'blood'=>$param['blood'],'starsign'=>$param['starsign'],'letter'=>$param['letter']])}" title="{$vo2}">{$vo2}</a>
+						{/maccms:foreach}
+						</div>
+					</div>
+				</div>
+		
+
+				<div class="library-box scroll-box">
+					<div class="scroll-content">
+						<a class="library-item library-item-first {if condition="$param['blood'] eq ''"} selected{/if}" href="{:mac_url('actor/show',['id'=>$param['id'],'area'=>$param['area'],'sex'=>$param['sex'],'starsign'=>$param['starsign'],'letter'=>$param['letter']])}">血型</a>
+						<div class="library-list">
+			            {maccms:foreach name=":explode(',','A型,B型,AB型,O型')" id="vo3" key="key3"}
+							<a class="library-item  {if condition="$param['blood'] eq $vo3"}selected{/if}" href="{:mac_url('actor/show',['id'=>$param['id'],'area'=>$param['area'],'sex'=>$param['sex'],'blood'=>$vo3,'starsign'=>$param['starsign'],'letter'=>$param['letter']])}" title="{$vo3}">{$vo3}</a>
+							  {/maccms:foreach}
+						</div>
+					</div>
+				</div>
+
+				<div class="library-box scroll-box">
+					<div class="scroll-content">
+						<a class="library-item library-item-first  {if condition="$param['starsign'] eq ''"}selected{/if}" href="{:mac_url('actor/show',['id'=>$param['id'],'area'=>$param['area'],'sex'=>$param['sex'],'blood'=>$param['blood'],'letter'=>$param['letter']])}">星座</a>
+						<div class="library-list">
+				        {maccms:foreach name=":explode(',','白羊座,金牛座,双子座,巨蟹座,狮子座,处女座,天枰座,天蝎座,射手座,摩羯座,水瓶座,双鱼座')" id="vo4" key="key4"}
+							<a class="library-item if condition="$param['starsign'] eq $vo4"} selected{/if}" href="{:mac_url('actor/show',['id'=>$param['id'],'area'=>$param['area'],'sex'=>$param['sex'],'blood'=>$param['blood'],'starsign'=>$vo4,'letter'=>$param['letter']])}" title="{$vo4}">{$vo4}</a>
+							{/maccms:foreach}
+						</div>
+					</div>
+				</div>
+
+
+					<div class="library-box scroll-box">
+					<div class="scroll-content">
+						<a class="library-item library-item-first  {if condition="$param['letter'] eq ''"}selected{/if}" href="{:mac_url('actor/show',['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by']])}">字母查找</a>
+						<div class="library-list">
+						   {maccms:foreach name=":explode(',','A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0-9')" id="vo5" key="key5"}
+							<a class="library-item {if condition="$param['letter'] eq $vo5"}selected{/if}" href="{:mac_url('actor/show',['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$vo5,'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by']])}" title="{$vo5}">{$vo5}</a>
+							{/maccms:foreach}
+						</div>
+					</div>
+				</div>
+					
+					
+					
+					
+				<div class="library-box scroll-box">
+					<div class="scroll-content">
+						<div class="library-list">
+							<a href="{:mac_url('actor/show',['id'=>$param['id'],'area'=>$param['area'],'sex'=>$param['sex'],'blood'=>$param['blood'],'starsign'=>$param['starsign'],'letter'=>$param['letter'],'order'=>$param['order'],'by'=>'time'])}" class="library-item  {if condition="$param['by'] eq '' || $param.by eq 'time'"}selected{/if}" title="按时间排序">时间排序</a>
+							<a href="{:mac_url('actor/show',['id'=>$param['id'],'area'=>$param['area'],'sex'=>$param['sex'],'blood'=>$param['blood'],'starsign'=>$param['starsign'],'letter'=>$param['letter'],'order'=>$param['order'],'by'=>'hits'])}" class="library-item {if condition="$param['by'] eq 'hits'"} selected{/if}" title="按人气排序">人气排序</a>
+						</div>
+					</div>
+				</div>
+				<div class="library-box">
+				<h2 class="library-stat">明星库为你选出<span class="important mac_total"></span>位明星</h2>
+				</div>
+			</div>
+		

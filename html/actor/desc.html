@@ -1,0 +1,88 @@
+            <div class="box view-heading">
+			<div class="mobile-play">
+				<div class="module-item-cover">
+					<div class="module-item-pic"><img class="lazyload" data-src="{:mac_url_img($obj.actor_pic)}" src="{:mac_url_img($mxonest.mxcms.s1.pic)}"></div>
+				</div>
+			</div>
+			<div class="video-cover">
+				<div class="module-item-cover">
+					<div class="module-item-pic">
+					<img class="lazyload" alt="	{$obj.actor_name}" data-src="{:mac_url_img($obj.actor_pic)}" src="{:mac_url_img($mxonest.mxcms.s1.pic)}">
+						<div class="loading"></div>
+					</div>
+				</div>
+			</div>
+			<div class="video-info">
+				<div class="video-info-header">
+					<h1 class="page-title">	{$obj.actor_name}</h1>
+					<h2 class="video-subtitle" title="又名：{$obj.actor_en}">{$obj.actor_en}</h2>
+					<a href="javascript:;" class="video-info-downbtn video-info-play gotodownloadlist gotodownloadlist"><i class="icon-warn"></i><strong>查看详细资料</strong></a>
+				</div>
+				<div class="video-info-main" style="padding:0;">
+					<div class="video-info-items"><span class="video-info-itemtitle">性别：</span>
+						<div class="video-info-item">
+					    {$obj.actor_sex|mac_default='未知'}
+						</div>
+					</div>
+					<div class="video-info-items"><span class="video-info-itemtitle">身高：</span>
+						<div class="video-info-item">
+				    	{$obj.actor_height|mac_default='未知'}
+						</div>
+					</div>
+					<div class="video-info-items"><span class="video-info-itemtitle">血型：</span>
+						<div class="video-info-item">{$obj.actor_blood|mac_default='未知'}</div>
+					</div>
+						<div class="video-info-items"><span class="video-info-itemtitle">职业：</span>
+						<div class="video-info-item">{$obj.actor_remarks|mac_default='未知'}</div>
+					</div>
+						<div class="video-info-items"><span class="video-info-itemtitle">体重：</span>
+						<div class="video-info-item">{$obj.actor_weight|mac_default='未知'}</div>
+					</div>
+					<div class="video-info-items"><span class="video-info-itemtitle">地区：</span>
+						<div class="video-info-item">{$obj.actor_area|mac_default='未知'}</div>
+					</div>
+						<div class="video-info-items"><span class="video-info-itemtitle">毕业：</span>
+						<div class="video-info-item">{$obj.actor_school|mac_default='未知'}</div>
+					</div>
+						<div class="video-info-items"><span class="video-info-itemtitle">作品：</span>
+						<div class="video-info-item">{$obj.actor_works|mac_default='未知'}</div>
+					</div>
+					<div class="video-info-items"><span class="video-info-itemtitle">简介：</span>
+						<div class="video-info-item">{$obj.actor_blurb}</div>
+					</div>
+				</div>
+				<div class="video-info-footer display">
+					<div class="video-info-share">
+						<button class="share-btn" data-clipboard-text="{$maccms.site_url}{:mac_url_vod_detail($obj)} 我正在{$maccms.site_name}观看《{$obj.actor_name}》，推荐给你一起看！">爱豆，与好朋友一起分享<i class="icon-happy"></i></button>
+					</div>
+				<div class="btn-aux btn-aux-o btn-large gotodownloadlist"><i class="icon-warn"></i>查看详细资料</div>
+				</div>
+			</div>
+		</div>
+	
+	    			<div class="module">
+			<div class="module-heading">
+			<h2 class="module-title" title="与{$obj.actor_name}主演的影片">主演的影片</h2>
+			</div>
+			<div class="module-list module-lines-list">
+				<div class="module-items">
+			    {maccms:vod num="" actor="'.$obj['actor_name'].'" order="desc" by="time"}
+				{include file="public/vodbox"}
+		        {/maccms:vod}
+				</div>
+			</div>
+		</div>
+	
+	
+	        <div class="module" id="download-list" name="download-list">
+			<div class="module-heading">
+			<h2 class="module-title" title="{$obj.actor_name}详细介绍">详细资料</h2>
+			</div>
+		<div class="module-blocklist scroll-box scroll-box-y module-player-list">
+		    <div class="scroll-content" style="display: block;">{$obj.actor_content|mac_filter_html} </div></div>
+		</div>
+		
+    <script>
+         $('.gotodownloadlist').click(function(){$('html,body').animate({scrollTop:$('#download-list').offset().top}, 800);});   
+    </script>
+		

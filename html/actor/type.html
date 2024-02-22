@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+	    {include file="seo/actor_type"}    
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+		{include file="public/include"}
+		<link href="{$maccms.path_tpl}mxstatic/css/mxone.css" rel="stylesheet" type="text/css">
+	</head>
+	<body class="page">
+		{include file="public/head"}
+		<main id="main" class="wrapper">
+			<div class="content">
+				<div class="module">
+			<div class="module-list">
+					{maccms:foreach name=":explode(',','内地,韩国,美国,日本')" id="vo" key="key"}
+
+									<div class="module-heading">
+										<h2 class="module-title">{$vo}明星</h2>
+										<a class="more" href="{:mac_url('actor/show',['area'=>$vo,'id'=>$obj.type_id])}" title="更多明星">更多明星
+											<i class="icon-arrow-right-o"></i>
+										</a>
+									</div>
+									<div class="module-list">
+										<div class="module-items module-lines-list">
+											{maccms:actor num="16" area="'.$vo.'" order="desc" by="time"} 
+											{include file="actor/actorbox"} 
+											{/maccms:actor}
+										</div>
+									</div>
+							{/maccms:foreach}
+															</div>
+							</div>
+						</div>
+		</main>
+
+		{include file="public/foot"}
+	</body>
+
+</html>
