@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+          {include file="seo/art_detail"}  
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		{include file="public/include"}
+		<link href="{$maccms.path_tpl}mxstatic/css/mxone.css" rel="stylesheet" type="text/css">
+	</head>
+	<body class="page">
+		{include file="public/head"}	
+		<main id="main" class="wrapper">
+	      <div class="content">  
+	      		{if condition="$mxonest['mxcms']['s3']['adqj'] eq 1"}{include file="ads/adqj"}	 <!-- 全局广告位 -->	{/if}
+	            <div class="col-lg-wide-15 col-md-wide-2 col-xs-1 padding-0">	
+					{include file="art/head"}	
+				</div>
+				<div class="col-lg-wide-6 col-md-wide-8 col-xs-1 mxone-pannel-side">
+					<div class="mxone-pannel mxone-pannel-bg clearfix">					
+						<div class="mxone-pannel-box clearfix">
+							<div class="mxone-pannel_bd col-pd clearfix">	
+								<h1 class="news-title">{$obj.art_name}</h1>				
+								<p class="text-muted">来源：{$obj.art_from|mac_default='互联网'}<span class="split-line"></span>人气：{$obj.art_hits}<span class="split-line"></span>更新：{$obj.art_time|date='Y-m-d H:i:s',###}</p>
+								<div class="news-content">
+									{$obj.art_page_list[$param['page']]['content']} 
+								</div>
+								
+ {if $obj.art_jumpurl}              
+  <a class="digg_link" href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">下载资源</a>
+ <div id="light" class="white_content">{$obj.art_jumpurl}
+ <a style="    float: right;top: 0px; position: absolute;right: 10px;color: #111;" href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">X</a></div> 
+        <div id="fade" class="black_overlay"></div>
+
+    <style> 
+        .digg_link{    margin: 10px auto 0;display: inline-block; width: 100px; height: 36px;border-radius: 5%;cursor: pointer; box-shadow: 0 0 12px 0 rgba(0, 0, 0, .15);line-height: 36px; text-align: center; background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);}
+        .black_overlay{  display: none;  position: absolute;  top: 0%;  left: 0%;    background-color: black;  z-index:1001; -moz-opacity: 0.8;  opacity:.80;   filter: alpha(opacity=88);   } 
+        .white_content {  display: none;  position: absolute;   width: 300px; height: 200px;  bottom: 0px;   left: 25%; padding: 20px;    border: 10px solid orange;   background-color: white;   z-index:1002;  overflow: auto;   } 
+    </style> 
+              
+<!--a class="digg_link" href="javascript:;" onclick="MAC.User.BuyPopedom(this)" data-id="{$obj.art_id}" data-sid="{$param.page}" data-nid="0" data-mid="2" data-type="1">购买资源({$obj.art_points}积分)</a-->     
+ {/if}								
+								
+								
+								
+								
+								{include file="public/paging"}	
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="col-lg-wide-25 mxone-pannel-side hidden-md hidden-sm hidden-xs">	
+					{include file="art/indexhot"}<!-- 热门资讯 -->
+				</div> 
+
+	    </div>
+	         </main>
+	         <div style="clear:both;"></div>
+		<span class="mac_ulog_set hide" alt="设置内容页浏览记录" data-type="art_hits" data-mid="{$maccms.mid}" data-id="{$obj.art_id}"></span>
+		<span class="mac_history_set hide" alt="设置History历史记录" data-name="[{$obj.type.type_name}]{$obj.art_name}" data-pic="{$obj.art_pic|mac_url_img}"></span>
+		
+    <!--统计数据-->
+	<span style="display: none" class="mac_hits hits" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}{$obj.art_id}{$obj.topic_id}" "="" data-type="hits"></span>
+	
+		
+		
+		{include file="public/foot"}
+	</body>
+</html>
