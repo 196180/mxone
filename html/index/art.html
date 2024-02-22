@@ -1,0 +1,31 @@
+{maccms:type ids="'.$mxonest['mxcms']['s2']['indexartid'].'" order="asc" by="sort" id="vo1" key="key1" flag="art"}
+<div class="module module-bg">
+   <div class="module-heading">
+      <h2 class="module-title">{if condition="$mxonest['mxcms']['s2']['syzixunicon'] eq 1"}<i class="iconfont icon-zixun f26" style="color:{$mxonest.mxcms.s2.syzixuniconcss}"></i> {/if} {$vo1.type_name}</h2>
+      	<a class="more" href="{:mac_url_type($vo1)}" title="更多{$vo1.type_name}">更多{$vo1.type_name}</a>
+   </div>
+   <div class="module-list module-line-list">
+      <div class="module-items">
+     	{maccms:art num="'.$mxonest['mxcms']['s2']['indexartnum'].'"    type="'.$vo1['type_id'].'"order="desc" by="time"}
+<div class="module-search-item ovhidden">
+     <div class="video-info-header"><a class="video-serial" href="{:mac_url_type($vo1)}" title="{$vo.art_name}">{$vo.type.type_name}</a>
+              </div>
+            <div class="video-cover">
+              <div class="module-item-cover nohoverbg top65">
+                <div class="module-item-pic"><a href="{:mac_url_art_detail($vo)}" title="{$vo.art_name}"></a><img class="lazy lazyload" data-src="{:mac_url_img($vo.art_pic)}" src="{:mac_url_img($mxonest.mxcms.s1.pic)}" alt="{$vo.art_name}">
+                  <div class="loading"></div>
+                </div>
+              </div>
+            </div>
+	<div class="video-info">
+				<div class="module-item-style video-name">
+			<a rel="nofollow" href="{:mac_url_art_detail($vo)}" title="{$vo.art_name}">{$vo.art_name}</a>
+		</div>
+	<div class="module-item-style video-text">{$vo.art_content|mac_filter_html}</div>
+    </div>
+    </div>
+ 	{/maccms:art}                
+ </div>
+   </div>
+</div>
+{/maccms:type}

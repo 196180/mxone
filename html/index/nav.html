@@ -1,0 +1,54 @@
+<div class="module homepage_homepage_channelnav">
+	<div class="homepage_left_content">
+	    <div class="homepage_main_tabs_wrap_new">
+            {maccms:type num="6" ids="'.$mxonest['mxcms']['s2']['navids'].'" order="asc" by="sort" id="vo1" key="key1" flag="vod"}
+            {include file="vod/home_sm"}
+            {/maccms:type}	        
+	    </div>
+	    <div class="homepage_normal_tabs_wrap">
+	        <div class="homepage_normal_tabs homepage_hide_1">
+	            {if condition="$mxonest['mxcms']['s2']['navdiy1'] eq 1"}
+	            <a class="homepage_tab aplus_exp aplus_clk" href="{$mxonest.mxcms.s2.navdiyu1}" target="_blank" >{$mxonest.mxcms.s2.navdiyn1}</a>
+	            {/if}
+	            {if condition="$mxonest['mxcms']['s2']['navdiy2'] eq 1"}
+	            <a class="homepage_tab aplus_exp aplus_clk" href="{$mxonest.mxcms.s2.navdiyu2}" target="_blank" >{$mxonest.mxcms.s2.navdiyn2}</a>
+	            {/if}
+	         </div>
+	        <div class="homepage_normal_tabs homepage_hide_2">
+	            {if condition="$mxonest['mxcms']['s2']['navdiy3'] eq 1"}
+	            <a class="homepage_tab aplus_exp aplus_clk" href="{$mxonest.mxcms.s2.navdiyu3}" target="_blank" >{$mxonest.mxcms.s2.navdiyn3}</a>
+	            {/if}
+	            {if condition="$mxonest['mxcms']['s2']['navdiy4'] eq 1"}
+	            <a class="homepage_tab aplus_exp aplus_clk" href="{$mxonest.mxcms.s2.navdiyu4}" target="_blank" >{$mxonest.mxcms.s2.navdiyn4}</a>
+	            {/if}
+	         </div>
+ 	        <div class="homepage_normal_tabs homepage_hide_3">
+	            {if condition="$mxonest['mxcms']['s2']['navdiy5'] eq 1"}
+	            <a class="homepage_tab aplus_exp aplus_clk" href="{$mxonest.mxcms.s2.navdiyu5}" target="_blank" >{$mxonest.mxcms.s2.navdiyn5}</a>
+	            {/if}
+	            {if condition="$mxonest['mxcms']['s2']['navdiy6'] eq 1"}
+	            <a class="homepage_tab aplus_exp aplus_clk" href="{$mxonest.mxcms.s2.navdiyu6}" target="_blank" >{$mxonest.mxcms.s2.navdiyn6}</a>
+	            {/if}
+	         </div>
+	         
+	    </div>
+	    	
+	</div>
+
+    <div class="homepage_opt_wrap">
+        <a  href="{:mac_url('/user')}" class=" aplus_exp aplus_clk">
+            <img src="{$maccms.path_tpl}mxstatic/image/vip.png" style="margin-left:0">
+            <span>VIP会员</span></a>
+        <a href="{:mac_url('label/live')}" class="undefined aplus_exp aplus_clk" >
+            <img src="{$maccms.path_tpl}mxstatic/image/zhibo.png" style="margin-left:">
+            <span>直播</span></a>
+        <a  href="{:mac_url_type($obj,['id'=>1],'show')}" class="undefined aplus_exp aplus_clk" >
+            <img src="{$maccms.path_tpl}mxstatic/image/pianku.png" style="margin-left:">
+            <span>片库</span></a>
+     </div>
+    <div class="homepage_cut_line_wrap">
+        <div class="homepage_cut_line">
+        </div>
+    </div>
+</div>
+

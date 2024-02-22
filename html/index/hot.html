@@ -1,0 +1,45 @@
+
+<div class="module">
+	<div class="module-heading">
+		<h2 class="module-title">{if condition="$mxonest['mxcms']['s2']['hoticon'] eq 1"}<i class="icon-hot" style="color:{$mxonest.mxcms.s2.hoticoncss}"></i> {/if} 最新热播</h2>
+		<div class="module-sub-title">
+		     <!---{maccms:vod num="5"  type="current" order="desc" by="hits_week" levels="1"}  -->
+			 {maccms:vod num="6" level="5" order="desc" by="time"}<!---数量6推荐5-->
+		    <div class="module-link-wrap" ><a  href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}"  title="{$vo.vod_name}" >{$vo.vod_name} </a></div>
+		    {/maccms:vod}
+		</div>
+		{if condition="$mxonest['mxcms']['s2']['todaygx'] eq 1"}<span class="more nonemore">今日更新：<font color="{$mxonest.mxcms.s2.todaycss}">“{:mac_data_count(0,'today','vod')}”</font> 部</span>{/if}
+	</div>
+	<div class="module-list module-lines-list">
+		<div class="module-items">
+		    
+		    {if condition="$mxonest['mxcms']['s2']['hotlevels'] eq levels"}
+		    
+		    
+			 {if condition="$mxonest['mxcms']['s2']['qzslt'] eq 1"}	      
+				{maccms:vod num="12" type="'.$mxonest['mxcms']['s2']['hotall'].'" order="desc" by="time" levels="'.$mxonest['mxcms']['s2']['hotlevel'].'" } 
+				{include file="public/vodbox"}
+		        {/maccms:vod}
+		          {else}
+		          {maccms:vod num="16" type="'.$mxonest['mxcms']['s2']['hotall'].'" order="desc" by="time" levels="'.$mxonest['mxcms']['s2']['hotlevel'].'" }
+				{include file="public/vodbox"}
+		        {/maccms:vod}
+		     {/if}
+		     
+		      {else}
+		      
+			 {if condition="$mxonest['mxcms']['s2']['qzslt'] eq 1"}	      
+				{maccms:vod num="12" type="'.$mxonest['mxcms']['s2']['hotall'].'" order="desc" by="time" level="'.$mxonest['mxcms']['s2']['hotlevel'].'" } 
+				{include file="public/vodbox"}
+		        {/maccms:vod}
+		          {else}
+		          {maccms:vod num="16" type="'.$mxonest['mxcms']['s2']['hotall'].'" order="desc" by="time" level="'.$mxonest['mxcms']['s2']['hotlevel'].'" }
+				{include file="public/vodbox"}
+		        {/maccms:vod}
+		     {/if}		      
+		      
+    
+		     {/if}
+		</div>
+	</div>
+</div>

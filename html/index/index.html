@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+{include file="seo/index"}    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+{include file="public/include"}
+</head>
+<body class="homepage">
+ 
+ {include file="public/head"}       <!-- 头部 -->
+ {if condition="$mxonest['mxcms']['s2']['app'] eq 1"}	
+    <div class="app-text">
+    <a href="{:mac_url('label/app')}"><i class="icon-download"></i>下载<strong>{$maccms.site_name}APP</strong>客户端</a>
+    <div class="bg-ball">
+    </div>
+    </div>	
+    {/if}
+    
+   {if condition="$mxonest['mxcms']['s2']['bigslide'] eq 1"} {include file="index/bigslide"} <!-- 轮播图 --> {/if}
+<main id="index-main" class="wrapper">
+	<div class="content">
+		    <br>		
+	    {if condition="$mxonest['mxcms']['s2']['nav'] eq 1"} {include file="index/nav"}	<!-- 幻灯下导航 --> {/if}
+       	{if condition="$mxonest['mxcms']['s2']['slide'] eq 1"} {include file="index/slide"}	 <!-- 轮播图 --> {/if}
+	     {if condition="$mxonest['mxcms']['s3']['adqj'] eq 1"} {include file="ads/adqj"}	 <!-- 全局广告位 -->{/if}
+	     {if condition="$mxonest['mxcms']['s2']['hot'] eq 1"}{include file="index/hot"}	 <!-- 正在热播 -->   {/if}
+         {if condition="$mxonest['mxcms']['s3']['ad1'] eq 1"}{include file="ads/ad1"} <!-- 广告位01 -->	 {/if}    
+         {if condition="$mxonest['mxcms']['s2']['yugao'] eq 1"}{include file="index/yugao"}{/if} <!-- 预告-->
+	     {include file="index/list"} <!-- 列表 -->
+	     
+	     {if condition="$mxonest['mxcms']['s2']['indextopic'] eq 1"}{include file="index/topic"} <!-- 专题 --> {/if}
+	     {if condition="$mxonest['mxcms']['s2']['indexart'] eq 1"} {include file="index/art"} <!-- 资讯 -->{/if}
+	     
+	     {if condition="$mxonest['mxcms']['s2']['new'] eq 1"}{include file="index/new"} <!-- 最新影片 -->   {/if}
+	     
+	</div>
+</main>
+         {include file="index/links"} <!-- 友情链接 -->
+         {include file="public/foot"} <!-- 底部-->
+         
+</body>
+</html>

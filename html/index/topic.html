@@ -1,0 +1,26 @@
+<div class="module">
+	<div class="module-heading">
+		<h2 class="module-title" title="最新专题">{if condition="$mxonest['mxcms']['s2']['sytopicicon'] eq 1"}<i class="iconfont icon-shoucang1 f26" style="color:{$mxonest.mxcms.s2.sytopiciconcss}"></i> {/if} 专题</h2>
+			<a class="more" href="{:mac_url('topic/index')}" title="更多专题">更多专题</a>
+		</div>
+	<div class="module-list module-lines-list">
+		<div class="module-items scroll-box">
+			<div class="scroll-content">
+			 	{maccms:topic num="'.$mxonest['mxcms']['s2']['indextopicnum'].'"  order="desc" by="time"}
+				<div class="module-item module-item-go picw">
+					<div class="module-item-cover nohoverbg pt50">
+						<div class="module-item-pic">
+							<a href="{:mac_url_topic_detail($vo)}"></a><img class=" ls-is-cached  lazy lazyloaded" data-src="{:mac_url_img($vo.topic_pic)}" src="{:mac_url_img($mxonest.mxcms.s1.pic)}" alt="{$vo.topic_name}">
+							<div class="loading"></div>
+						</div>
+					</div>
+					<div class="module-item-titlebox w100">
+						<a href="{:mac_url_topic_detail($vo)}" class="module-item-title ccenter " title="{$vo.topic_name}">{$vo.topic_name}</a>
+					</div>
+					<div class="module-item-text ccenter"><span>—— {$vo.topic_rel_vod|explode=',',###|count}个影片 ——</span></div>
+				</div>
+				{/maccms:topic}
+			</div>
+		</div>
+	</div>
+</div>

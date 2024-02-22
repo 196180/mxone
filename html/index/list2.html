@@ -1,0 +1,88 @@
+
+{maccms:type  order="asc" by="sort" ids="'.$mxonest['mxcms']['s2']['logtype'].'" id="vo1" key="key1"  flag="vod" year="2022,2021,2020"}	
+<div class="module {if condition="$mxonest['mxcms']['s2']['listphb'] eq 1"}module-wrapper{/if}">
+    <div {if condition="$mxonest['mxcms']['s2']['listphb'] eq 1"} class="module-main" {/if}>
+	<div class="module-heading">
+		<h2 class="module-title">
+		{if condition="$mxonest['mxcms']['s2']['lbiconkg'] eq 1"}
+		{if condition="$vo1.type_id_1 eq $mxonest.mxcms.s2.lbnum1||$vo1.type_id eq $mxonest.mxcms.s2.lbnum1"}
+        <i class="{$mxonest.mxcms.s2.lbicon1}" style="color:{$mxonest.mxcms.s2.lbiconcss}"></i>
+        {elseif condition="$vo1.type_id_1 eq $mxonest.mxcms.s2.lbnum2||$vo1.type_id eq $mxonest.mxcms.s2.lbnum2"}
+        <i class="{$mxonest.mxcms.s2.lbicon2}" style="color:{$mxonest.mxcms.s2.lbiconcss}"></i>
+       {elseif condition="$vo1.type_id_1 eq $mxonest.mxcms.s2.lbnum3||$vo1.type_id eq $mxonest.mxcms.s2.lbnum3"}
+        <i class="{$mxonest.mxcms.s2.lbicon3}" style="color:{$mxonest.mxcms.s2.lbiconcss}"></i>
+         {elseif condition="$vo1.type_id_1 eq $mxonest.mxcms.s2.lbnum4||$vo1.type_id eq $mxonest.mxcms.s2.lbnum4"}
+         <i class="{$mxonest.mxcms.s2.lbicon4}" style="color:{$mxonest.mxcms.s2.lbiconcss}"></i>
+         {elseif condition="$vo1.type_id_1 eq $mxonest.mxcms.s2.lbnum5||$vo1.type_id eq $mxonest.mxcms.s2.lbnum5"}
+         <i class="{$mxonest.mxcms.s2.lbicon5}" style="color:{$mxonest.mxcms.s2.lbiconcss}"></i>
+         {elseif condition="$vo1.type_id_1 eq $mxonest.mxcms.s2.lbnum6||$vo1.type_id eq $mxonest.mxcms.s2.lbnum6"}
+         <i class="{$mxonest.mxcms.s2.lbicon6}" style="color:{$mxonest.mxcms.s2.lbiconcss}"></i>
+         {elseif condition="$vo1.type_id_1 eq $mxonest.mxcms.s2.lbnum7||$vo1.type_id eq $mxonest.mxcms.s2.lbnum7"}
+         <i class="{$mxonest.mxcms.s2.lbicon7}" style="color:{$mxonest.mxcms.s2.lbiconcss}"></i>
+          {elseif condition="$vo1.type_id_1 eq $mxonest.mxcms.s2.lbnum8||$vo1.type_id eq $mxonest.mxcms.s2.lbnum8"}
+         <i class="{$mxonest.mxcms.s2.lbicon8}" style="color:{$mxonest.mxcms.s2.lbiconcss}"></i>
+         {else}
+         <i class="{$mxonest.mxcms.s2.lbiconmr}"></i>
+         {/if}
+         {/if} 
+         {$vo1.type_name}
+		  </h2>
+		<a class="more" href="{:mac_url_type($vo1,[],'type')}" title="更多{$vo1.type_name}">更多{$vo1.type_name}
+		<i class="icon-arrow-right-o"></i>
+		</a>
+	</div>
+	<div class="module-list module-lines-list">
+		<div class="module-items">
+	    {if condition="$mxonest['mxcms']['s2']['qzslt'] eq 1"}	  
+	     {maccms:vod  num="12" type="'.$vo1['type_id'].'" order="desc" by="time" level="'.$mxonest['mxcms']['s2']['listlevel'].'" year="2022,2021,2020"}  
+	    {include file="public/vodbox"}
+		{/maccms:vod}
+		{else}
+		 {maccms:vod  num="16" type="'.$vo1['type_id'].'" order="desc" by="time" level="'.$mxonest['mxcms']['s2']['listlevel'].'" year="2022,2021,2020"}  
+	    {include file="public/vodbox"}
+		{/maccms:vod}
+		{/if}
+		</div>
+	</div>
+</div>
+	{if condition="$mxonest['mxcms']['s2']['listphb'] eq 1"}
+	<div class="module-side">
+				<div class="module-heading">
+					<h2 class="module-title">{$vo1.type_name}<span>•</span>{$mxonest.mxcms.s2.listphbname}</h2>
+				</div>
+				<div class="module-side-list module-bg">
+					<div class="scroll-box">
+						<div class="module-textlist scroll-content">
+						    
+						 {if condition="$mxonest['mxcms']['s2']['qzslt'] eq 1"}   
+						     {maccms:vod num="6"  type="'.$vo1['type_id'].'" order="desc" by="'.$mxonest['mxcms']['s2']['listphbby'].'" level="'.$mxonest['mxcms']['s2']['listphbtj'].'" year="2022,2021,2020"}  
+						    <a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" class="text-list-item">
+								<div class="text-list-num {eq name="key" value="1"}top-main top-1{/eq}{eq name="key" value="2"}top-main top-2{/eq}{eq name="key" value="3"}top-main top-3{/eq}">{$key}</div>
+								<div class="text-list-title">
+									<h3>{$vo.vod_name}</h3>
+									<p>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</p>
+								</div>
+							</a>
+								{/maccms:vod}
+								
+							{else}	
+							
+						     {maccms:vod num="10"  type="'.$vo1['type_id'].'" order="desc" by="'.$mxonest['mxcms']['s2']['listphbby'].'" level="'.$mxonest['mxcms']['s2']['listphbtj'].'" year="2022,2021,2020"}  
+						    <a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" class="text-list-item">
+								<div class="text-list-num {eq name="key" value="1"}top-main top-1{/eq}{eq name="key" value="2"}top-main top-2{/eq}{eq name="key" value="3"}top-main top-3{/eq}">{$key}</div>
+								<div class="text-list-title">
+									<h3>{$vo.vod_name}</h3>
+									<p>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</p>
+								</div>
+							</a>
+								{/maccms:vod}							
+							
+							{/if}	
+								
+						</div>
+					</div>
+				</div>
+			</div>
+		{/if}
+</div>
+ {/maccms:type}

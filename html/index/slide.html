@@ -1,0 +1,110 @@
+<script type="text/javascript"  src="{$maccms.path_tpl}mxstatic/js/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="{$maccms.path_tpl}mxstatic/css/swiper-bundle.min.css" type="text/css">
+   <div class="swiper-container" style="margin-bottom: 20px;">
+      <div class="swiper-wrapper">
+          {maccms:vod num="'.$mxonest['mxcms']['s2']['slidenum'].'" type="all" order="desc" by="time" level="'.$mxonest['mxcms']['s2']['slidetj'].'"}
+         <div class="swiper-slide">
+        <a class="dymrslide banner" data-name="{$vo.vod_name}" data-fname="{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}" href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" style="background: url({$vo.vod_pic_slide|mac_url_img}) center no-repeat;  background-size: cover;">
+          <div class="txt-info">
+            <p class="gate"><span>{$vo.type.type_name}</span></p>
+            <p class="name">{$vo.vod_name}</p>
+            <p class="info">{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if} </p>
+          </div>
+          </a>
+        </div>
+           	{/maccms:vod}		  
+           	
+           		{if condition="$mxonest['mxcms']['s2']['slidediy1'] eq 1"}
+           	<div class="swiper-slide">
+        <a class="dymrslide banner" href="{$mxonest.mxcms.s2.slidediy1url}" target="_blank" style="background: url({$mxonest.mxcms.s2.slidediy1pic}) center no-repeat;  background-size: cover;">
+          <div class="txt-info">
+            <p class="name">{$mxonest.mxcms.s2.slidediy1name}</p>
+          </div>
+          </a>
+        </div>
+           	  {/if}
+           	  	{if condition="$mxonest['mxcms']['s2']['slidediy2'] eq 1"}
+           	<div class="swiper-slide">
+        <a class="dymrslide banner" href="{$mxonest.mxcms.s2.slidediy2url}" target="_blank"  style="background: url({$mxonest.mxcms.s2.slidediy2pic}) center no-repeat;  background-size: cover;">
+          <div class="txt-info">
+            <p class="name">{$mxonest.mxcms.s2.slidediy2name}</p>
+          </div>
+          </a>
+        </div>
+           	  {/if}
+           	  	{if condition="$mxonest['mxcms']['s2']['slidediy3'] eq 1"}
+           	<div class="swiper-slide">
+        <a class="dymrslide banner" href="{$mxonest.mxcms.s2.slidediy3url}" target="_blank"  style="background: url({$mxonest.mxcms.s2.slidediy3pic}) center no-repeat;  background-size: cover;">
+          <div class="txt-info">
+            <p class="name">{$mxonest.mxcms.s2.slidediy3name}</p>
+          </div>
+          </a>
+        </div>
+           	  {/if}
+           	  {if condition="$mxonest['mxcms']['s2']['slidediy4'] eq 1"}
+           	<div class="swiper-slide">
+        <a class="dymrslide banner" href="{$mxonest.mxcms.s2.slidediy4url}" target="_blank"  style="background: url({$mxonest.mxcms.s2.slidediy4pic}) center no-repeat;  background-size: cover;">
+          <div class="txt-info">
+            <p class="name">{$mxonest.mxcms.s2.slidediy4name}</p>
+          </div>
+          </a>
+        </div>
+           	  {/if}
+           	   {if condition="$mxonest['mxcms']['s2']['slidediy5'] eq 1"}
+           	<div class="swiper-slide">
+        <a class="dymrslide banner" href="{$mxonest.mxcms.s2.slidediy5url}" target="_blank"  style="background: url({$mxonest.mxcms.s2.slidediy5pic}) center no-repeat;  background-size: cover;">
+          <div class="txt-info">
+            <p class="name">{$mxonest.mxcms.s2.slidediy5name}</p>
+          </div>
+          </a>
+        </div>
+           	  {/if}
+           	
+        			
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+     <script>
+       var swiper = new Swiper('.swiper-container', {
+            direction: 'horizontal',
+            loop: true, 
+            autoplay: true,
+            autoplay: {
+                delay: 3000,
+                stopOnLastSlide: false,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+				 clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        
+        					onInit:function() {
+						setTimeout(function () {
+							$.adaptiveBackground.run()	
+						},1500);
+					},
+  paginationBulletRender: function (swiper, index, className) {
+    var name = document.querySelectorAll('.dymrslide')[index].getAttribute('data-name');
+    var fname = document.querySelectorAll('.dymrslide')[index].getAttribute('data-fname');
+
+    return '<li class="' + className + '"><div class="focusswiper_nav_slide"><h2> <span class="nav_index nav_index_' + (index + 1) + '">' + (index + 1) + '</span>' + name + '</h2><div class="sub_title focusswiper_sub_title">' + fname + '</div></div></li>';
+  }						
+				});
+	  $(".swiper-pagination-bullet").hover(function() {
+          $(this).click(); //鼠标划上去之后，自动触发点击事件来模仿鼠标划上去的事件
+      },function() {
+          mySwiper.autoplay.start(); //鼠标移出之后，自动轮播开启
+      })
+      
+      
+      });
+    </script>
+  

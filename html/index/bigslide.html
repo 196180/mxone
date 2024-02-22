@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="{$maccms.path_tpl}mxstatic/css/swiper.min.css" type="text/css">
+<link rel="stylesheet" href="{$maccms.path_tpl}mxstatic/css/hdp.css" type="text/css">
+   <div class="swiper-container">
+      <div class="swiper-wrapper">
+          
+           		{if condition="$mxonest['mxcms']['s2']['slidediy1'] eq 1"}
+           	<div class="swiper-slide">
+        <a class="dymrslide banner" data-name="{$mxonest.mxcms.s2.slidediy1name}" data-fname="{if condition="$mxonest.mxcms.s2.slidediy1fname neq ''"}{$mxonest.mxcms.s2.slidediy1fname}{else /}暂无{/if}" href="{$mxonest.mxcms.s2.slidediy1url}" target="_blank" style="background: url({$mxonest.mxcms.s2.slidediy1pic}) center no-repeat;  background-size: cover;">
+            <div class="focus_leftshode focusleftshode"></div>
+            <div class="focus_rightshode focusrightshode"></div>
+            <div class="focus_topshode focustopshode"></div>
+            <div class="focus_bottomshode focusbottomshode"></div>
+          <div class="txt-info">
+            <p class="gate"><span>广告</span></p>  
+            <p class="name">{$mxonest.mxcms.s2.slidediy1name}</p>
+            <p class="info">{if condition="$mxonest.mxcms.s2.slidediy1fname neq ''"}{$mxonest.mxcms.s2.slidediy1fname}{else /}暂无{/if} </p>            
+          </div>
+          </a>
+        </div>
+           	  {/if}
+           	  	{if condition="$mxonest['mxcms']['s2']['slidediy2'] eq 1"}
+           	<div class="swiper-slide">
+        <a class="dymrslide banner" data-name="{$mxonest.mxcms.s2.slidediy2name}" data-fname="{if condition="$mxonest.mxcms.s2.slidediy2fname neq ''"}{$mxonest.mxcms.s2.slidediy2fname}{else /}暂无{/if}" href="{$mxonest.mxcms.s2.slidediy2url}" target="_blank"  style="background: url({$mxonest.mxcms.s2.slidediy2pic}) center no-repeat;  background-size: cover;">
+            <div class="focus_leftshode focusleftshode"></div>
+            <div class="focus_rightshode focusrightshode"></div>
+            <div class="focus_topshode focustopshode"></div>
+            <div class="focus_bottomshode focusbottomshode"></div>            
+          <div class="txt-info">
+            <p class="gate"><span>广告</span></p>    
+            <p class="name">{$mxonest.mxcms.s2.slidediy2name}</p>
+            <p class="info">{if condition="$mxonest.mxcms.s2.slidediy2fname neq ''"}{$mxonest.mxcms.s2.slidediy2fname}{else /}暂无{/if} </p>     
+          </div>
+          </a>
+        </div>
+           	  {/if}
+           	  	{if condition="$mxonest['mxcms']['s2']['slidediy3'] eq 1"}
+           	<div class="swiper-slide">
+        <a class="dymrslide banner" data-name="{$mxonest.mxcms.s2.slidediy3name}" data-fname="{if condition="$mxonest.mxcms.s2.slidediy3fname neq ''"}{$mxonest.mxcms.s2.slidediy3fname}{else /}暂无{/if}" href="{$mxonest.mxcms.s2.slidediy3url}" target="_blank"  style="background: url({$mxonest.mxcms.s2.slidediy3pic}) center no-repeat;  background-size: cover;">
+            <div class="focus_leftshode focusleftshode"></div>
+            <div class="focus_rightshode focusrightshode"></div>
+            <div class="focus_topshode focustopshode"></div>
+            <div class="focus_bottomshode focusbottomshode"></div>            
+          <div class="txt-info">
+            <p class="gate"><span>广告</span></p>    
+            <p class="name">{$mxonest.mxcms.s2.slidediy3name}</p>
+            <p class="info">{if condition="$mxonest.mxcms.s2.slidediy3fname neq ''"}{$mxonest.mxcms.s2.slidediy3fname}{else /}暂无{/if} </p>
+          </div>
+          </a>
+        </div>
+
+
+           	  {/if}          
+ <style>
+ .gifpic{display:none}
+ </style>
+  {if condition="$maccms.aid eq 7"}
+          {maccms:vod num="'.$mxonest['mxcms']['s2']['slidenum'].'" type="all" order="desc" by="time" level="9"}
+               {include file="public/swiper_banner"}
+           	{/maccms:vod}	
+           	
+ {elseif condition="$maccms.aid eq 11"}
+            {maccms:vod num="'.$mxonest['mxcms']['s2']['slidenum'].'" type="current" order="desc" by="time" level="9,8"}
+               {include file="public/swiper_banner"}
+           	{/maccms:vod}	 <!--分类页幻灯默认取推荐9的分类图片,若需要额外推荐,选择对于的分类推荐8-->
+{else}
+          {maccms:vod num="'.$mxonest['mxcms']['s2']['slidenum'].'" type="all" order="desc" by="time" level="'.$mxonest['mxcms']['s2']['slidetj'].'"}
+               {include file="public/swiper_banner"}
+           	{/maccms:vod}		  <!--首页幻灯-->
+{/if}         	
+ 
+
+        			
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+

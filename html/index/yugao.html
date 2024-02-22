@@ -1,0 +1,136 @@
+	<div class="module">
+		<div class="module-heading">
+			<h2 class="module-title">{if condition="$mxonest['mxcms']['s2']['yugaoicon'] eq 1"}<i class="{$mxonest['mxcms']['s2']['yugaoicons']}" style="color:{$mxonest.mxcms.s2.yugaoiconcss}"></i> {/if} {$mxonest['mxcms']['s2']['yugaoname']}</h2>
+			
+			<div class="module-tab">
+				<div class="module-tab-items">
+					
+	{if condition="$mxonest['mxcms']['s2']['yugaoall'] gt 0"}
+	{maccms:type  order="asc" by="sort" ids="'.$mxonest['mxcms']['s2']['yugaoall'].'" id="vo1" key="key1"  flag="vod"}
+	<a class="module-tab-item" href="{:mac_url_type($vo1,[],'show')}" title="更多{$vo1.type_name}">更多{$vo1.type_name}<i class="icon-arrow-right-o"></i></a>
+	{/maccms:type}
+
+	{/if}	
+	   
+				</div>
+			</div>
+		</div>
+			<div class="module-list module-line-list ">
+				<div class="module-items scroll-box">
+					<div class="scroll-content">
+	<?php $dqtime=date("Y-m-d");?>	
+
+	{if condition="$mxonest['mxcms']['s2']['yugaoall'] gt 0"}
+
+			  {maccms:vod num="16" type="'.$mxonest['mxcms']['s2']['yugaoall'].'" order="desc" by="time" flag="vod" } 
+			  
+	<div class="module-item">
+		
+		
+		{if condition="mxcms[s2][yugaowenzi] eq 1"}
+		
+			 <div class="pack_reserve"><p>{$mxonest['mxcms']['s2']['yugaotip3']}</p></div>
+		  {else}
+			 <div class="pack_reserve"><p>{if condition="$vo.vod_pubdate eq ''"}{$mxonest['mxcms']['s2']['yugaotip1']}{elseif condition="$vo.vod_pubdate lt $dqtime"}{$mxonest['mxcms']['s2']['yugaotip2']}{elseif condition="$vo.vod_pubdate neq ''"}{$vo.vod_pubdate}{else /}{$mxonest['mxcms']['s2']['yugaotip1']}{/if}</p></div>
+		  {/if}
+			 
+			 
+			 
+					<div class="module-item-cover ">
+						
+						<div class="module-item-pic">
+							<a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" title="{$vo.vod_name}" >
+								<i class="icon-play"></i>
+							</a>
+							<img class="lazy lazyloaded"  data-src="{$vo.vod_pic|mac_url_img}" src="{:mac_url_img($mxonest.mxcms.s1.pic)}"  alt="{$vo.vod_name}">
+							<div class="loading"></div>
+						</div>
+						<div class="module-item-caption">
+							<span>{$vo.vod_year}</span>
+							<span class="video-class">{$vo.type.type_name}</span>
+							<span>{$vo.vod_area}</span>
+						</div>
+				{if condition="$mxonest['mxcms']['s2']['yugaoall'] gt 0"}
+						<div class="module-item-rt">
+							<span class="yugao">{$mxonest.mxcms.s2.yugaoname1}</span>
+						</div>			
+				{else}	
+						{if condition="$vo.vod_state eq '预告片'"}
+						<div class="module-item-rt">
+							<span class="yugao">预告</span>
+						</div>
+						{/if}					
+				{/if}	
+						<div class="module-item-content">
+							<div class="module-item-style video-name">
+								<a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" title="{$vo.vod_name}">{$vo.vod_name}</a>
+							</div>
+							<div class="module-item-style video-tag">
+							{$vo.vod_actor|mac_default='未知'|mac_url_create='actor'|}
+							</div>
+							<div class="module-item-style video-text">{$vo.vod_blurb}</div>
+						</div>
+					</div>
+					<div class="module-item-titlebox">
+						<a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" class="module-item-title" title="{$vo.vod_name}">{$vo.vod_name}</a>
+					</div>
+					<div class="module-item-text">{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</div>
+					{if condition="$mxonest['mxcms']['s2']['yugaoshoucang'] eq 1"}
+					<a href="javascript:;" class="mac_ulog reserve" data-type="2" data-mid="1" data-id="{$vo.vod_id}">收藏</a>{/if}
+				</div>  			
+				
+				
+				
+			  {/maccms:vod}
+
+
+
+
+	{else}	
+			{maccms:vod num="16" state="预告片" order="desc" by="time"}
+					<div class="module-item">
+			 <div class="pack_reserve"><p>{if condition="$vo.vod_pubdate eq ''"}{$mxonest['mxcms']['s2']['yugaotip1']}{elseif condition="$vo.vod_pubdate lt $dqtime"}{$mxonest['mxcms']['s2']['yugaotip2']}{elseif condition="$vo.vod_pubdate neq ''"}{$vo.vod_pubdate}{else /}{$mxonest['mxcms']['s2']['yugaotip1']}{/if}</p></div>
+					<div class="module-item-cover ">
+						
+						<div class="module-item-pic">
+							<a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" title="{$vo.vod_name}" >
+								<i class="icon-play"></i>
+							</a>
+							<img class="lazy lazyloaded"  data-src="{$vo.vod_pic|mac_url_img}" src="{:mac_url_img($mxonest.mxcms.s1.pic)}"  alt="{$vo.vod_name}">
+							<div class="loading"></div>
+						</div>
+						<div class="module-item-caption">
+							<span>{$vo.vod_year}</span>
+							<span class="video-class">{$vo.type.type_name}</span>
+							<span>{$vo.vod_area}</span>
+						</div>
+						{if condition="$vo.vod_state eq '预告片'"}
+						<div class="module-item-rt">
+							<span class="yugao">预告</span>
+						</div>
+						{/if}	
+						<div class="module-item-content">
+							<div class="module-item-style video-name">
+								<a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" title="{$vo.vod_name}">{$vo.vod_name}</a>
+							</div>
+							<div class="module-item-style video-tag">
+							{$vo.vod_actor|mac_default='未知'|mac_url_create='actor'|}
+							</div>
+							<div class="module-item-style video-text">{$vo.vod_blurb}</div>
+						</div>
+					</div>
+					<div class="module-item-titlebox">
+						<a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" class="module-item-title" title="{$vo.vod_name}">{$vo.vod_name}</a>
+					</div>
+					<div class="module-item-text">{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</div>
+					<a href="javascript:;" class="mac_ulog reserve" data-type="2" data-mid="1" data-id="{$vo.vod_id}">收藏</a>
+				</div>        
+			{/maccms:vod}
+			
+	{/if}	        
+			
+			
+			  </div>
+			</div>
+		</div>
+	</div>
