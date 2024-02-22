@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+ <head> 
+ {include file="seo/plot_detail"}   
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+     {include file="public/include"}
+</head>
+<body class="view page">
+    
+   {include file="public/head"}   <!-- 头部 -->
+   <main id="main" class="wrapper">
+   	<div class="content">   
+
+    {include file="vod/plotdesc"}       <!-- 简介 -->
+
+{if condition="$mxonest['mxcms']['s3']['adqj'] eq 1"}{include file="ads/adqj"}	 <!-- 全局广告位 -->	{/if}  
+    {if condition="$obj.vod_plot eq 1"}
+    {include file="vod/plot"}   <!-- 分集剧情 -->
+    {/if}
+  
+    <div class="module module-bg">
+	<div class="module-heading">
+		<h2 class="module-title">{$obj['vod_plot_list'][$param['page']]['name']}剧情介绍</h2>
+		<a class="more" href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$param.page])}" title="{$obj.vod_name}在线观看">立即播放
+		<i class="icon-arrow-right-o"></i>
+		</a>
+	</div>
+	<div class="module-items">
+		<div class="video-info">
+		{$obj['vod_plot_list'][$param['page']]['detail']|mac_filter_html}
+		</div>
+	</div>
+    </div>
+ 
+    <div class="module video-info-aux">
+    {if condition="$obj['vod_plot_list'][$param['page'] -1 ]['name'] neq ''"}        
+	<a  class="more" href="{:mac_url_plot_detail($obj,['page'=>$param['page']-1])}" title="上一集剧情">上一集</a>
+	{/if}
+	 {if condition="$obj['vod_plot_list'][$param['page'] +1 ]['name'] neq ''"}   
+	<a  class="more" style="float: right;" href="{:mac_url_plot_detail($obj,['page'=>$param['page']+1])}" title="下一集剧情">下一集</a>
+	    {/if}
+	</div>
+	
+    {include file="vod/serie"}   <!-- 系列影片 -->
+    
+    {include file="vod/like"}       <!-- 相关影片 -->
+    
+    {include file="vod/hot"}       <!-- 正在热播 -->
+   
+   	</div>
+   </main>
+   
+   
+   
+   {include file="public/foot"} <!-- 底部-->
+           <script type="text/javascript"  src="{$maccms.path}mxstatic/js/desc.js"></script>
+ </body>
+</html>

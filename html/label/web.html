@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>域名列表 - {$maccms.site_name}</title>
+	<meta name="keywords" content="{$maccms.site_keywords}" />
+	<meta name="description" content="{$maccms.site_description}" />
+	{include file="public/include"}
+<body class="article page">
+{include file="public/head"}
+<main id="main" class="wrapper">
+			<div class="content">
+				<div>
+					<h1 class="page-title">{$maccms.site_name}最新地址</h1>
+					<div class="box">
+						<div class="article-content">
+							<h2 id="domain"><a href="#domain">域名列表</a></h2>
+							<p>{if condition="$mxonest['mxcms']['s2']['wz0'] eq 1"}
+							       	{if condition="$mxonest['mxcms']['s2']['wz01'] eq 1"}
+								<a href="http://{$mxonest.mxcms.s2.web1}" target="_blank">http://{$mxonest.mxcms.s2.web1}</a>&nbsp;<span speed="http://{$mxonest.mxcms.s2.web1}/">测速中</span><br>
+									{/if}
+		                        	{if condition="$mxonest['mxcms']['s2']['wz2'] eq 1"}
+								<a href="http://{$mxonest.mxcms.s2.web2}" target="_blank">http://{$mxonest.mxcms.s2.web2}</a>&nbsp;<span speed="http://{$mxonest.mxcms.s2.web2}/">测速中</span><br>
+									{/if}
+			                        {if condition="$mxonest['mxcms']['s2']['wz3'] eq 1"}
+								<a href="http://{$mxonest.mxcms.s2.web3}" target="_blank">http://{$mxonest.mxcms.s2.web3}</a>&nbsp;<span speed="http://{$mxonest.mxcms.s2.web3}/">测速中</span><br>
+									{/if}
+			                    {if condition="$mxonest['mxcms']['s2']['wz4'] eq 1"}
+								<a href="http://{$mxonest.mxcms.s2.web4}" target="_blank">http://{$mxonest.mxcms.s2.web4}</a>&nbsp;<span speed="http://{$mxonest.mxcms.s2.web4}/">测速中</span><br>{/if}
+			                    {if condition="$mxonest['mxcms']['s2']['wz5'] eq 1"}
+								<a href="http://{$mxonest.mxcms.s2.web5}" target="_blank">http://{$mxonest.mxcms.s2.web5}</a>&nbsp;<span speed="http://{$mxonest.mxcms.s2.web5}/">测速中</span><br>{/if}
+								{/if}
+							  <b>如果您认可{$maccms.site_name}，请分享给你的好友！</b></p>
+							<p>
+							<a href="{:mac_url('label/app')}" class="btn-main btn-large shadow-drop article-btn">{$maccms.site_name}APP下载</a><br>
+							如果域名被封无法访问，可通过App打开、查看最新网址..<br></p>
+							
+								<hr>
+							                                 <ul>
+									<li>
+										<a href="/index.php/label/about.html" target="_blank">关于我们</a>
+									</li>
+									<li>
+										<a href="/index.php/label/help.html" target="_blank">投屏帮助</a>
+									</li>									
+									<li>
+										<a href="/index.php/label/banquan.html" target="_blank">版权声明</a>
+									</li>
+								</ul>
+								<hr>
+						</div>
+						<div class="article-bg"></div>
+						<div class="article-bg01"></div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script>
+			var ping = 1;
+			setInterval("ping++", 1);
+
+			function test(i) {
+				$("span[speed]").each(function(x) {
+					if(i === x) {
+						var str = "较慢";
+						if(ping < 300) {
+							$(this).css("color", "green");
+							str = "极快";
+						}
+						if(ping > 300 && ping < 500) {
+							$(this).css("color", "#00FF00");
+							str = "较快";
+						}
+						if(ping > 500) {
+							$(this).css("color", "#666666");
+						}
+						$(this).text("" + str + "" + "(" + ping * 1 + "ms)");
+					}
+				});
+			}
+			$(function() {
+				$("span[speed]").each(function(i) {
+					var sortid = $(this).attr("speed");
+					var self = $(this);
+					self.append('<img src="' + sortid + '?' + Math.random() + '" width="1" height="1" style="display:none" onerror=test(' + i + ') >');
+				});
+			});
+		</script>
+		
+
+{include file="public/foot"} <!-- 底部-->
+ 
+ </body>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>vip解析视频解析 - {$maccms.site_name}</title>
+	<meta name="keywords" content="vip视频解析,vip视频在线解析,vip解析,万能vip视频解析,vip视频全能解析,vip视频,手机vip视频解析,手机在线解析vip视频,优酷vip解析,爱奇艺vip解析,腾讯vip解析,乐视vip解析,芒果vip解析,vip音乐解析">
+	<meta name="description" content="{$maccms.site_name}VIP视频免费看，在线解析，vip视频解析，优酷vip解析，爱奇艺vip解析，腾讯vip解析，乐视vip解析，全网影视vip，芒果vip解析方便广大用户VIP视频服务，最新电影最新电视剧在线免费观看">
+
+	{include file="public/include"}
+<body class="article page">
+   {include file="public/head"}
+ <style>
+
+	#palybox{border-radius:6px;overflow:hidden;background:#111;width:100%;height:650px}
+	.ecysjz{color:#fff;}
+	.url-box{margin:0 auto;padding:25px 0;width:870px}
+	.url-text{outline: 0;height:44px;float:left;border: 1px solid #e0e0e075;color:#ff2a14}
+	.form-control{height: 44px;border-radius:6px 0 0 6px;width:637px;padding-left:1px}
+	.url-c{width:100px}
+	.btn-play{width:120px;border-radius:0 6px 6px 0;height:44px;border:none ; background: #dedede;color: rgba(0, 0, 0, .68);}
+	.col-lg-12 p{line-height:40px}
+ @media(max-width:899px) {
+     
+    .url-box{ width:100%}
+    .form-control{width:60%;}
+    .url-c{width:20%}
+    .btn-play{width:20%;}
+ }	
+</style>  
+<main id="main" class="wrapper">
+			<div class="content">
+			    		{if condition="$mxonest['mxcms']['s3']['adqj'] eq 1"}{include file="ads/adqj"}	 <!-- 全局广告位 -->	{/if}
+				<div>
+					<h1 class="page-title">vip解析视频解析</h1>
+					<div class="box">
+					    
+					
+						    
+
+	<div class="container-fluid video-box ec-body-z">
+		<div class="container ">
+			<iframe id="palybox" src="/template/mxone/html/live/loading.php" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+			<div class="url-box">
+				<div class="input-group cf">
+					<input type="text" onpaste="myFunction()" id="url" class="form-control url-text" aria-label="Text input with segmented button dropdown" placeholder="请粘贴视频网址>ㅂ<ﾉ ☆" title="请复制你想要看的视频网址，粘贴到此处点击播放即可！">
+                    <select class="url-c url-text" title="如发现视频无法正常播放请尝试更换视频线路！" id="jk"></select>
+					<button type="button" class="button btn-play" title="点击开始解析并开始播放" id="ssdi">播放</button>
+				</div>
+			</div>
+			<div id="jxurllin" style="display:none">{$mxonest.mxcms.s2.play.jxxl}</div>
+		</div>
+	</div>
+
+							
+							
+							
+							
+						
+					
+						<div class="article-bg01"></div>
+					</div>
+				</div>
+			</div>
+		</main>
+		
+
+{include file="public/foot"} <!-- 底部-->
+ 
+ </body>

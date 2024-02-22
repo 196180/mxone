@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>影视排行榜 - {$maccms.site_name}</title>
+	<meta name="keywords" content="{$maccms.site_keywords}" />
+	<meta name="description" content="{$maccms.site_description}" />
+	{include file="public/include"}
+<body class="article page">
+   {include file="public/head"}
+ <main id="main" class="wrapper bgys" >
+     <div class="content">
+         		{if condition="$mxonest['mxcms']['s3']['adqj'] eq 1"}{include file="ads/adqj"}	 <!-- 全局广告位 -->	{/if}
+	 <div class="list">
+		{if condition="$mxonest['mxcms']['s7']['hotpxb'] eq 1"}     
+    <div class="list-item">
+		<h5 class="item-title">
+			<i class="icon-watch-history"></i>
+			<span>热播总排行榜</span>
+		</h5>
+		{maccms:vod num="'.$mxonest['mxcms']['s7']['hotnum'].'" type="all" order="desc" by="hits" level="'.$mxonest['mxcms']['s7']['hotlevel'].'"}
+		<a class="item" href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" title="{$vo.vod_name}" target="_blank">
+			<span class="{eq name="key" value="1"}one{/eq}{eq name="key" value="2"}two{/eq}{eq name="key" value="3"}three{/eq} order">{$key|mac_num_fill}</span>
+			<span class="keyword">{$vo.vod_name}</span>
+		</a>
+		{/maccms:vod}
+	</div>
+	   {/if}
+	  	{if condition="$mxonest['mxcms']['s7']['zztjb'] eq 1"}      
+	<div class="list-item">
+		<h5 class="item-title">
+			<i class="icon-play"></i>
+			<span>站长推荐榜</span>
+		</h5>
+		{maccms:vod num="'.$mxonest['mxcms']['s7']['zztjnum'].'" type="all" order="desc" by="time" level="'.$mxonest['mxcms']['s7']['zztjlevel'].'"}
+		<a class="item" href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" title="{$vo.vod_name}" target="_blank">
+			<span class="{eq name="key" value="1"}one{/eq}{eq name="key" value="2"}two{/eq}{eq name="key" value="3"}three{/eq} order">{$key|mac_num_fill}</span>
+			<span class="keyword">{$vo.vod_name}</span>
+		</a>
+		{/maccms:vod}
+	</div>
+	  {/if}
+       
+    {maccms:type ids="'.$mxonest['mxcms']['s7']['diytopids'].'" order="asc" by="sort" id="vo1" key="key1"}
+	<div class="list-item">
+		<h5 class="item-title">
+	    {if condition="$vo1.type_id_1 eq $mxonest.mxcms.s7.num1||$vo1.type_id eq $mxonest.mxcms.s7.num1"}
+        <i class="{$mxonest.mxcms.s7.icon1}"></i>
+       {elseif condition="$vo1.type_id_1 eq $mxonest.mxcms.s7.num2||$vo1.type_id eq $mxonest.mxcms.s7.num2"}
+        <i class="{$mxonest.mxcms.s7.icon2}"></i>
+         {elseif condition="$vo1.type_id_1 eq $mxonest.mxcms.s7.num3||$vo1.type_id eq $mxonest.mxcms.s7.num3"}
+         <i class="{$mxonest.mxcms.s7.icon3}"></i>
+          {elseif condition="$vo1.type_id_1 eq $mxonest.mxcms.s7.num4||$vo1.type_id eq $mxonest.mxcms.s7.num4"}
+         <i class="{$mxonest.mxcms.s7.icon4}"></i>
+          {elseif condition="$vo1.type_id_1 eq $mxonest.mxcms.s7.num5||$vo1.type_id eq $mxonest.mxcms.s7.num5"}
+          <i class="{$mxonest.mxcms.s7.icon5}"></i>
+            {elseif condition="$vo1.type_id_1 eq $mxonest.mxcms.s7.num6||$vo1.type_id eq $mxonest.mxcms.s7.num6"}
+             <i class="{$mxonest.mxcms.s7.icon6}"></i>
+           {else}
+            <i class="{$mxonest.mxcms.s7.iconmr}"></i>
+           {/if}
+			<span>{$vo1.type_name}热播榜</span>
+		</h5>
+		{maccms:vod num="'.$mxonest['mxcms']['s7']['diytopidsnum'].'" type="'.$vo1['type_id'].'" order="desc" by="hits" level="'.$mxonest['mxcms']['s7']['diytopidslevel'].'"}
+		<a class="item" href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" title="{$vo.vod_name}" target="_blank">
+			<span class="{eq name="key" value="1"}one{/eq}{eq name="key" value="2"}two{/eq}{eq name="key" value="3"}three{/eq} order">{$key|mac_num_fill}</span>
+			<span class="keyword">{$vo.vod_name}</span>
+		</a>
+		{/maccms:vod}
+	</div>
+
+	{/maccms:type}
+</div>
+    
+</div>
+</main>
+
+{include file="public/foot"} <!-- 底部-->
+ </body>
