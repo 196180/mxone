@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>会员中心 - {$maccms.site_name}</title>
+	<meta name="keywords" content="会员中心">
+	<meta name="description" content="会员中心">
+	{include file="public/include"}
+	{include file="user/include"}
+</head>
+<body class="page">
+{include file="public/head"}
+<div class="container">
+    <div class="row">   	
+    	<div class="col-md-wide-25 col-sm-wide-35 col-xs-1 padding-0">
+    		{include file="user/head"}						
+    	</div>
+    	<div class="col-md-wide-75 col-sm-wide-65 col-xs-1 mxone-pannel-side hidden-xs" >   		
+    		<div class="mxone-pannel mxone-pannel-bg clearfix">
+				<div class="mxone-pannel-box clearfix">
+					<div class="mxone-pannel_hd">
+						<div class="mxone-pannel__head active bottom-line clearfix">
+							<h3 class="title">	我的资料</h3>
+							<ul class="navuser nav-tabs pull-right">
+								<li class="active"><a href="">基本资料</a></li>
+								<li><a href="{:url('user/info')}">修改信息</a></li>
+								<li><a href="{:url('user/popedom')}">我的权限</a></li>
+							</ul>
+						</div>																		
+					</div>
+					<div class="mxone-pannel_bd clearfix">
+						<ul class="mxone-user__form col-pd clearfix">
+							<p><span class="xiang">用户名：</span>{$obj.user_name}</p>
+							<p class="top-line-dot"><span class="xiang">QQ号码：</span>{$obj.user_qq|mac_default='未填写'}</p>
+							<p class="top-line-dot"><span class="xiang">Email地址：</span>{$obj.user_email}</p>
+							<p class="top-line-dot"><span class="xiang">注册时间：</span>{$obj.user_reg_time|mac_day}</p>
+							<p class="top-line-dot"><span class="xiang">登陆IP：</span>{$obj.user_login_ip|long2ip}</p>
+							<p class="top-line-dot"><span class="xiang">登陆时间：</span>{$obj.user_login_time|mac_day}</p>
+							<p class="top-line-dot hidden-sm"><span class="xiang">推广链接：</span><a class="urlcopy" href="javascript:;" data-clipboard-text="http://{$maccms.site_url}{:mac_url('user/reg')}?uid={$obj.user_id}">http://{$maccms.site_url}{:mac_url('user/reg')}?uid={$obj.user_id}</a>
+							</p>
+						</ul>																							
+					</div>		
+				</div>
+			</div>	
+			<!-- D083 by v.shoutu.cn -->
+			<div class="mxone-pannel mxone-pannel-bg clearfix">	
+				<div class="mxone-pannel-box">
+					<div class="mxone-pannel_hd">
+						<div class="mxone-pannel__head clearfix">
+							<h3 class="title">热门影片</h3>
+						</div>
+					</div>
+					
+					<div class="mxone-pannel_bd">
+					<div class="module-list module-lines-list">
+	            	<div class="module-items">
+	                {maccms:vod  type="all" order="desc" by="hts"}  
+	                 {if condition="$mxonest['mxcms']['s2']['qzslt'] eq 1"}	    
+	                 	<div class="module-item module-item-go w16">
+					<div class="module-item-cover">
+						<div class="module-item-pic">
+							<a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" title="{$vo.vod_name}"></a><img class=" ls-is-cached  lazy lazyloaded" data-src="{$vo.vod_pic|mac_url_img}" src="{:mac_url_img($mxonest.mxcms.s1.pic1)}" alt="{$vo.vod_name}">
+							<div class="loading"></div>
+						</div>
+						<div class="module-item-caption">
+						   <span>{$vo.vod_year}</span>
+						  <span class="video-class">{$vo.type.type_name}</span>
+						</div>
+					</div>
+					<div class="module-item-titlebox">
+						<a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" class="module-item-title" title="{$vo.vod_name}">{$vo.vod_name}</a>
+					</div>
+					<div class="module-item-text">{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</div>
+				</div>
+				{else}
+	             <div class="module-item width165">
+				<div class="module-item-cover">
+					<div class="module-item-pic">
+						<a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" title="{$vo.vod_name}" >
+							<i class="icon-play"></i>
+						</a>
+						<img class="lazy lazyloaded"  data-src="{$vo.vod_pic|mac_url_img}" src="{:mac_url_img($mxonest.mxcms.s1.pic)}"  alt="{$vo.vod_name}">
+						<div class="loading"></div>
+					</div>
+					<div class="module-item-caption">
+						<span>{$vo.vod_year}</span>
+						<span class="video-class">{$vo.type.type_name}</span>
+						<span>{$vo.vod_area}</span>
+					</div>
+					<div class="module-item-content">
+						<div class="module-item-style video-name">
+							<a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" title="{$vo.vod_name}">{$vo.vod_name}</a>
+						</div>
+						<div class="module-item-style video-tag">
+						{$vo.vod_actor|mac_default='未知'|mac_url_create='actor'|}
+						</div>
+						<div class="module-item-style video-text">{$vo.vod_blurb}</div>
+					</div>
+				</div>
+				<div class="module-item-titlebox">
+					<a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" class="module-item-title" title="{$vo.vod_name}">{$vo.vod_name}</a>
+				</div>
+				<div class="module-item-text">{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</div>
+			</div>
+			{/if}
+	            	{/maccms:vod}
+	            	</div>
+                	</div>												
+					</div>
+				</div>
+			</div>
+    	</div>
+    </div>
+</div>
+
+{include file="public/foot"}
+</body>
+</html>

@@ -1,0 +1,35 @@
+{notempty name="obj[vod_rel_art]"}
+<div class="module module-bg">
+   <div class="module-heading">
+      <h2 class="module-title">相关话题</h2>
+      <div class="module-tab">
+			<div class="module-tab-items">
+<a class="module-tab-item" href="https://www.douyin.com/search/{$obj.vod_name}" title="{$obj.vod_name}" target="_blank">
+      <img src="https://lf1-cdn-tos.bytegoofy.com/goofy/ies/douyin/search/public/favicon.ico" style="width: 12px;">&nbsp;<span class="">{$obj.vod_name}</span></a>
+<a class="module-tab-item" href="https://www.toutiao.com/search?keyword={$obj.vod_name}" title="{$obj.vod_name}" target="_blank">
+      <img src="https://so.toutiao.com/favicon.ico" style="width: 12px;">&nbsp;<span class="">{$obj.vod_name}</span></a>
+<a class="module-tab-item" href="https://s.weibo.com/weibo?q={$obj.vod_name}" title="{$obj.vod_name}" target="_blank">
+      <img src="https://s.weibo.com/favicon.ico" style="width: 12px;">&nbsp;<span class="">{$obj.vod_name}</span></a> 
+<a class="module-tab-item" href="https://www.baidu.com/s?wd={$obj.vod_name}" title="{$obj.vod_name}" target="_blank">
+          <img src="https://www.baidu.com/favicon.ico" style="width: 12px;">&nbsp;<span class="">{$obj.vod_name}</span></a>       
+			</div>
+		</div>
+   </div>
+   <div class="module-list module-line-list">
+      <div class="module-items">
+  {maccms:art  rel="'.$obj['vod_rel_art'].'" order="desc" by="time"}  	
+<div class="module-search-item ovhidden">
+	<div class="video-info">
+				<div class="module-item-style video-name">
+			<a rel="nofollow" href="{:mac_url_art_detail($vo)}" title="{$vo.art_name}">{$vo.art_name}</a>
+		</div>
+	<div class="module-item-style video-text">{$vo.art_content|mac_filter_html}</div>
+    </div>
+    </div>
+ 	{/maccms:art}                
+ </div>
+   </div>
+</div>
+
+
+{/notempty}

@@ -1,0 +1,37 @@
+	   	{if condition="$mxonest['mxcms']['s2']['hot'] eq 1"}
+	   <div class="module">
+			<div class="module-heading">
+				<h2 class="module-title">正在热播</h2>
+				<a class="more" href="{:mac_url_type($vo,[],'show')}" title="更多">更多<i class="icon-arrow-right-o"></i></a>
+			</div>
+			<div class="module-list module-lines-list">
+				<div class="module-items">
+		    {if condition="$mxonest['mxcms']['s2']['hotlevels'] eq levels"}
+			 {if condition="$mxonest['mxcms']['s2']['qzslt'] eq 1"}	      
+				{maccms:vod num="12" type="'.$mxonest['mxcms']['s2']['hotall'].'" order="desc" by="time" levels="'.$mxonest['mxcms']['s2']['hotlevel'].'" } 
+				{include file="public/vodbox"}
+		        {/maccms:vod}
+		          {else}
+		          {maccms:vod num="16" type="'.$mxonest['mxcms']['s2']['hotall'].'" order="desc" by="time" levels="'.$mxonest['mxcms']['s2']['hotlevel'].'" }
+				{include file="public/vodbox"}
+		        {/maccms:vod}
+		     {/if}
+		     
+		      {else}
+		      
+			 {if condition="$mxonest['mxcms']['s2']['qzslt'] eq 1"}	      
+				{maccms:vod num="12" type="'.$mxonest['mxcms']['s2']['hotall'].'" order="desc" by="time" level="'.$mxonest['mxcms']['s2']['hotlevel'].'" } 
+				{include file="public/vodbox"}
+		        {/maccms:vod}
+		          {else}
+		          {maccms:vod num="16" type="'.$mxonest['mxcms']['s2']['hotall'].'" order="desc" by="time" level="'.$mxonest['mxcms']['s2']['hotlevel'].'" }
+				{include file="public/vodbox"}
+		        {/maccms:vod}
+		     {/if}		      
+		      
+    
+		     {/if}
+				</div>
+			</div>
+		</div>
+		{/if}

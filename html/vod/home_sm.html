@@ -1,0 +1,17 @@
+<div class="homepage_main_tabs_new">
+	          <a class="homepage_main_tabs_title_new" href="{:mac_url_type($vo1)}" target="_blank" >{$vo1.type_name}</a>
+	          <div class="homepage_main_tabs_sub_new">
+	             		{maccms:foreach name=":explode(',',$vo1.type_extend.class)" id="vo2" key="key2"}
+	                  	{if condition="$key2 lt 2"}
+	                  	<a class="homepage_sub_title_new" target="_blank" href="{:mac_url_type($vo1,['class'=>$vo2],'show')}" title="{$vo2}">{$vo2|mac_substring=2}</a>     {/if}
+	                  	{/maccms:foreach}
+	          </div>
+     <div class="homepage_channel_video_wrap">
+         <div class="homepage_arrow"></div>
+            <a class="homepage_title col4" href="{:mac_url_type($vo1)}">更多{$vo1.type_name}<span class="fa fa-step-forward"></span></a>
+                            {maccms:vod num="4" type="'.$vo1['type_id'].'" order="desc" by="hits_week" level="'.$mxonest['mxcms']['s2']['hotlevel'].'" }
+            <a href="{:mac_url_vod_play($vo)}" class="homepage_video_wrap" title="{$vo.vod_name}"><img src="{:mac_url_img($vo.vod_pic)}" class="homepage_video_img" />
+            <div class="homepage_video_title col1">{$vo.vod_name}</div></a>
+                            {/maccms:vod}
+    </div>  	          
+ </div>   

@@ -1,0 +1,51 @@
+
+
+  		        {if condition="$obj.vod_actor neq ''"}
+					{maccms:actor num="1" order="desc" name="'.$obj[vod_actor].'" id="vo1"}
+					{if condition="$vo1.actor_name neq ''"}    
+        <div class="module">
+			<div class="module-heading">
+			<h2 class="module-title" title="{$obj.vod_name}相关演员">相关演员</h2>
+			</div>
+      <div class="module-actor-list  ">
+         <div class="module-list module-line-list"> 
+					<div class="module-items actor-list  scroll-box ">
+                      <div class="scroll-content" style="display: inline-flex;">
+                          
+                          {maccms:actor num="6" order="desc" name="'.$obj[vod_actor].'" id="vo2"}
+                          
+						<div><a class="actor_part" title="{$vo2.actor_name}" >
+						    <div class="actor_pic">
+						<img class=" lazy lazyloaded" data-src="{:mac_url_img($vo2.actor_pic)}" src="{:mac_url_img($mxonest.mxcms.s1.pic)}">
+						   </div>
+                			<div class="actor_name">{$vo2.actor_name}</div>
+                			</a>
+                			<i class="actor_arrow"></i>
+                       </div>
+                           	{/maccms:actor}
+                       
+                      </div>
+                      <div class="actor_xian"></div>   
+			    	</div>		    
+
+		             <div class="module-list module-line-list trochanter-actorvbox">
+{maccms:actor num="6" order="desc" name="'.$obj[vod_actor].'" id="vo2"}        
+                       <div class="module-items scroll-box dd">
+                        <div class="scroll-content">
+
+			    {maccms:vod num="" actor="'.$vo2['actor_name'].'" order="desc" by="time"}
+				{include file="public/vodbox"}
+		        {/maccms:vod}
+						</div>	
+					   </div>
+{/maccms:actor}							
+							
+                     </div>
+				</div>
+			</div>
+	
+		</div> 
+
+  					 {/if} 
+					 {/maccms:actor}
+			     {/if}	

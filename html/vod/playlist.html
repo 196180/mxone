@@ -1,0 +1,62 @@
+<style>
+  .module-blocklist a em  {    color: rgb(0 0 0 / 92%);position: absolute; top: -1px;right: 2px;z-index: 3; transform: scale(0.78); transform-origin: top right;border-radius: 1px 5px 0 5px; background: linear-gradient(90deg, #FFEB3B, #f9e326);padding: 0 3px; line-height: 16px;font-size: 12px; border-radius: 5px; display: inline-block !important;}
+   @media (min-width: 659px){ 
+       .module-blocklist a{ overflow: initial; width:auto}
+       .module-blocklist a em{ top: -5px; right: -5px;}
+   }
+ </style>  
+
+        <div class="module">
+      <div class="module-heading">
+          <h2 class="module-title" title="{$obj.vod_name}在线观看列表">选集播放:</h2>
+          <div class="module-tab module-player-tab ">
+            <input type="hidden" name="tab" id="tab" class="module-tab-input">
+            <label class="module-tab-name"><span class="module-tab-value"><strong>切换线路</strong></span><i class="icon-arrow-bottom-o"></i></label>
+              <div class="module-tab-items">
+              <div class="module-tab-title">播放节点列表<span class="close-drop"><i class="icon-close-o"></i></span></div>
+              <div class="module-tab-content">
+               {maccms:foreach name="obj.vod_play_list" id="vo" by="sort"}	  
+               <div class="module-tab-item tab-item" data-dropdown-value="{$vo.player_info.show}"><span>{$vo.player_info.show}</span><small>{$vo.url_count}</small></div>
+               {/maccms:foreach}	
+                </div>
+            </div>
+          </div>
+          <div class="shortcuts-mobile-overlay"></div>
+        </div>
+        {maccms:foreach name="obj.vod_play_list" id="vo" by="sort"}	
+        <div class="module-list module-player-list tab-list sort-list {switch name="obj.type_id"|switch name="obj.type_id_1" }{case value="3"}module-vod-list{/case}{/switch}" id="glist-{$key}">
+          <div class="module-tab module-sorttab">
+            <input type="hidden" name="tab-sort" id="tab-sort" class="module-tab-input">
+            <label class="module-tab-name"><i class="icon-sort"></i>选集</label>
+            <div class="module-tab-items">
+              <div class="module-tab-title">选集<span class="close-drop"><i class="icon-close-o"></i></span><a class="desc sort-button" href="javascript:void(0);" to="#sort-item-{$key}"><i class="icon-sort"></i>排序</a></div>
+              <div class="module-tab-content">
+                <div class="module-blocklist">
+                  <div class="sort-item" id="sort-item-{$key}">
+                   {maccms:foreach name="vo.urls" id="vo2" key="key2" } 
+                   
+                 <a href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}" title="播放{$obj.vod_name}{$vo2.name}"><span>{$vo2.name}</span>
+                 {if condition="$vo2 eq end($vo.urls)&&$obj.vod_points gt 0"} <em>VIP</em> 
+                 {elseif condition="$vo2.nid gt $vo.url_count -2&&$vo.url_count > 2"} <em style="background:#FF008C;color:#FFFFFF">最新</em>{/if}
+                 {if condition="$vo2 eq end($vo.urls)&&$obj.vod_level eq '3'"} <em style="background:#00BFFF;color:#FFFFFF">预告</em>{/if}</a>
+                    {/maccms:foreach}                  
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="shortcuts-mobile-overlay"></div>
+          <div class="module-blocklist scroll-box scroll-box-y">
+            <div class="scroll-content">
+             {maccms:foreach name="vo.urls" id="vo2" key="key2" } 
+            <a href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}" title="播放{$obj.vod_name}{$vo2.name}"><span>{$vo2.name}</span>
+             {if condition="$vo2 eq end($vo.urls)&&$obj.vod_points gt 0"} <em>VIP</em> 
+               {elseif condition="$vo2.nid gt $vo.url_count -2&&$vo.url_count > 2"} <em style="background:#FF008C;color:#FFFFFF">最新</em>{/if}
+                {if condition="$vo2 eq end($vo.urls)&&$obj.vod_level eq '3'"} <em style="background:#00BFFF;color:#FFFFFF">预告</em>{/if}</a>
+             {/maccms:foreach}                   
+           </div>
+          </div>
+        </div>
+        {/maccms:foreach}
+        </div>
+        <script type="text/javascript">$(".tab-item:first,.module-list:first").addClass("selected");</script>

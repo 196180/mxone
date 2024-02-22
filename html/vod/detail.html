@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+ <head> 
+ {include file="seo/vod_detail"} 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+   {include file="public/include"}
+</head>
+<body class="view page">
+    
+   {include file="public/head"}   <!-- 头部 -->
+   <main id="main" class="wrapper">
+   	<div class="content">   
+   	
+    {include file="vod/desc"}       <!-- 简介 -->
+    
+{if condition="$mxonest['mxcms']['s3']['adqj'] eq 1"}{include file="ads/adqj"}	 <!-- 全局广告位 -->	{/if}  
+
+    {notempty name="obj[vod_play_from]"}
+    {include file="vod/playlist"}   <!-- 播放列表 -->
+    {/notempty}
+
+
+	  {include file="vod/actor_vbox"}       <!-- 演员表 -->
+   
+    {if condition="$obj.vod_plot eq 1"}
+    {include file="vod/plot"}   <!-- 分集剧情 -->
+    {/if}
+{if condition="$mxonest['mxcms']['s3']['ad22'] eq 1"}{include file="ads/ad22"}	 <!-- 详情图片广告位 -->	{/if}  
+ 
+     {include file="vod/art"}   <!-- 相关话题 -->
+    
+    
+    {include file="vod/serie"}   <!-- 系列影片 -->
+    
+    {include file="vod/like"}       <!-- 相关影片 -->
+    {if condition="$mxonest['mxcms']['s2']['hot'] eq 1"}
+    {include file="vod/hot"}       <!-- 正在热播 -->
+     {/if}
+   	</div>
+   </main>
+   
+   
+   
+   {include file="public/foot"} <!-- 底部-->
+    <script type="text/javascript"  src="{$maccms.path_tpl}mxstatic/js/desc.js"></script>
+   <div class="shortcuts-box"><div id="shortcuts-info"></div></div>
+   <span style="display:none" class="mac_ulog_set" alt="设置内容页浏览记录" data-type="1" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}" data-sid="{$param.sid}" data-nid="{$param.nid}"></span>
+<span style="display:none" class="mac_history_set" alt="设置History历史记录" data-name="[{$obj.type.type_name}]{$obj.vod_name}" data-pic="{$obj.vod_pic|mac_url_img}"></span>
+ </body>
+</html>

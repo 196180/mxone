@@ -1,0 +1,15 @@
+        <div class="module">
+      <div class="module-heading">
+          <h2 class="module-title" title="{$obj.vod_name}分集剧情">分集剧情</h2>
+        </div>
+        <div class="module-list module-player-list">
+          <div class="module-blocklist scroll-box scroll-box-y">
+            <div class="scroll-content">
+            {volist name="$obj['vod_plot_list']" id="vo"}
+            <a href="{:mac_url_plot_detail($obj,['page'=>$key])}" title="{$obj.vod_name}分集剧情">
+            <span>{$vo.name}</span></a>
+      	 {/volist}               
+           </div>
+          </div>
+        </div>
+        </div>

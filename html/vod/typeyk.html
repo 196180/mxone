@@ -1,0 +1,83 @@
+<style>
+.site_subnav{z-index:100;width:100%;}
+.site_subnav .site_subnav_inner{position:relative;height:40px;margin:0 auto;padding-left:10px;letter-spacing:-3px;white-space:nowrap}
+.site_subnav .nav_link{display:inline-block;margin:0 30px 0 0;padding:0;font-size:16px;letter-spacing:normal;line-height:40px;vertical-align:top}
+.site_subnav .current{position:relative;color:#ff5c38;font-weight:700}
+.site_subnav .nav_link_more{position:relative;margin-right:30px;margin-left:20px;white-space:nowrap}
+.site_subnav .svg_vstore{position:absolute;top:11px;left:-20px;width:17px;height:17px}
+.site_subnav .svg_icon_expand{width:13px;height:8px;vertical-align:1px}
+.site_subnav .open .svg_path_down,.site_subnav .svg_path_up{display:none}
+.site_subnav .open .svg_path_up{display:block}
+    @media (min-width: 899px){
+   .site_subnav{    margin: 20px 0;     overflow: hidden;} 
+    }
+</style>
+
+<div class="site_subnav scroll-box">
+  <div class="site_subnav_inner scroll-content">
+              <a href="{:mac_url_type($obj,[],'type')}" class="nav_link nav_link_more">
+                  <svg width="17" height="17" class="svg_vstore">
+                      <path d="M2 2v10h10V2H2zm0-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" fill="#FF5C38"></path>
+                      <path d="M5 15h10V3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2h2z" fill="#FF5C38"></path>
+                      <path d="M6.007 4.138l3.726 2.26c.286.238.353.7.148 1.032a.698.698 0 0 1-.148.172l-3.726 2.26c-.286.238-.684.16-.888-.172C5.04 9.565 5 9.154 5 9V5c0-.408.285-1 .637-1a.58.58 0 0 1 .37.138z" fill="#FFB821"></path>
+                   </svg>{$obj.type_name}片库</a>
+             {maccms:foreach  name=":explode(',',$obj.type_extend.class)" id="vo1" key="key1"} 
+             {if condition="$key1 lt 10"}
+          <a href="{:mac_url_type($obj,['class'=>$vo1],'show')}" class="nav_link " title="{$vo1}{$obj.type_name}">{$vo1}</a>
+             {/if}
+             {/maccms:foreach}  
+             
+             {maccms:foreach  name=":explode(',',$obj.type_extend.area)" id="vo1" key="key1"} 
+             {if condition="$key1 lt 4"}
+          <a href="{:mac_url_type($obj,['area'=>$vo1],'show')}" class="nav_link " title="{$vo1}{$obj.type_name}">{$vo1}</a>
+             {/if}
+             {/maccms:foreach}  
+             
+             {maccms:foreach  name=":explode(',',$obj.type_extend.year)" id="vo1" key="key1"} 
+             {if condition="$key1 lt 4"}
+          <a href="{:mac_url_type($obj,['year'=>$vo1],'show')}" class="nav_link " title="{$vo1}{$obj.type_name}">{$vo1}</a>
+             {/if}
+             {/maccms:foreach}               
+                
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

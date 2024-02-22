@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>《{$obj.vod_name}》 需使用积分购买权限</title>
+{include file="public/include"}  
+</head>
+<body class="page">
+     {include file="public/head"}   <!-- 头部 -->
+      <main id="main" class="wrapper">
+   	<div class="content">
+   	    
+   	   <div class="box">    
+<div class="mx-mac_msg_jump">
+	<div class="msg_jump_tit">系统提示:</div>
+	<div class="text">
+		正在观看《{$obj.vod_name}》-{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']} - {$popedom.msg}
+		<p class="text-muted" style="font-size: 10px;margin-bottom: 10px;">提示：一次支付，永久观看，不重复扣费，谢谢支持。</p>
+		<p style="text-align:center;">
+			{if condition="$user.group.group_id eq 1"}
+			<a href="javascript:;" class="mac_user btnlogin">马上登录</a>
+			{else/}
+			<a href="{:url('user/buy')}" class="btncz" target="_blank">马上充值</a>
+			<a href="javascript:;" onclick="MAC.User.BuyPopedom(this)" class="btnlogin" data-id="{$obj.vod_id}" data-sid="{$param.sid}" data-nid="{$param.nid}" data-mid="1" data-type="{if condition="$obj.player_info.flag eq 'play'"}4{else/}5{/if}" data-mid="1">确认购买</a>
+			{/if}
+		</p>
+	</div>
+</div>
+
+<div class="article-bg"></div><div class="article-bg01"></div>
+	</div>
+   	</div>
+   </main>
+   
+   {include file="public/foot"} <!-- 底部-->
+
+</body>
+</html>
+
+
+

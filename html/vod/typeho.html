@@ -1,0 +1,20 @@
+    {if$obj.type_extend.area}
+         <div class="module module-bg">
+      <div class="module-heading">
+        <h2 class="module-title">热播{$obj.type_name}</h2>
+      </div>
+      <div class="module-list module-lines-list">
+        <div class="module-items">
+            {if condition="$mxonest['mxcms']['s2']['qzslt'] eq 1"}	  	    
+				{maccms:vod num="12" type="current" order="desc" by="hits_month" level="'.$mxonest['mxcms']['s2']['hotlevel'].'"}	
+				{include file="public/vodbox"}
+		        {/maccms:vod}
+		        {else}
+		        {maccms:vod num="16" type="current" order="desc" by="hits_month" level="'.$mxonest['mxcms']['s2']['hotlevel'].'"}	
+				{include file="public/vodbox"}
+		        {/maccms:vod}
+		        {/if}
+       </div>
+      </div>
+    </div>
+    {/if} 

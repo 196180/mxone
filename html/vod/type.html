@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+ <head>
+ {include file="seo/vod_type"}  
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+{include file="public/include"}
+ </head>
+ <body   class="page">
+   {include file="public/head"}   <!-- 头部 -->
+         {if condition="$mxonest['mxcms']['s2']['bigslide'] eq 1"} {include file="index/bigslide"}  {/if}<!-- 轮播图 --> 
+   <main id="main" class="wrapper">
+  <div class="content">
+        {include file="vod/typetb"} <!-- 分类页分类 -->
+        {include file="vod/typeyk"} <!-- 分类页分类2 -->        
+{if condition="$mxonest['mxcms']['s3']['adqj'] eq 1"}{include file="ads/adqj"}	 <!-- 全局广告位 -->	{/if}   
+        {include file="vod/typeho"} <!-- 分类页热播 -->
+        
+       	{if condition="!$obj.childids eq '' "} 
+       	
+        {include file="vod/typefl"}  <!-- 有二级分类 -->
+        
+	    {else}
+	    
+        {include file="vod/typedq"}  <!-- 无二级分类显示地区 -->
+        
+         {include file="public/paging"}  <!-- 分页 -->
+         
+       {/if}   
+    </div>
+    
+    <div class="module-footer module-type">
+    <a href="{:mac_url_type($obj,[],'show')}" class="load-all" title="全部{$obj.type_name}">全部{$obj.type_name}<i class="icon-arrow-right-o"></i></a>
+    </div>
+</main>
+    {include file="public/foot"} <!-- 底部-->
+ </body>
+</html>
